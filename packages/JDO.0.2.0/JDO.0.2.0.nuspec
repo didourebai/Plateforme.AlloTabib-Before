@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>JDO</id>
+    <version>0.2.0</version>
+    <title>JSON Dynamic Object</title>
+    <authors>Chris Case</authors>
+    <owners>Chris Case</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>JSON Dynamic Object (JDO) is a small and lightweight library that provides a simple paradigm of working with JSON objects in .Net. Everything is stored as a native type, and made easily accessible through member access notation and internally uses the JavaScriptSerializer Class.</description>
+    <summary>JSON Dynamic Object (JDO) is a small and lightweight library that provides a simple paradigm of working with JSON objects in .Net.</summary>
+    <copyright>http://opensource.org/licenses/mit-license.php</copyright>
+    <language>en-US</language>
+    <tags>json dynamic</tags>
+  </metadata>
+</package>

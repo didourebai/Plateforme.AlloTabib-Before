@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>TwitterOAuth</id>
+    <version>0.25.17.0138</version>
+    <title>TwitterOAuth</title>
+    <authors>ziyasal</authors>
+    <owners>ziyasal</owners>
+    <projectUrl>https://twitteroauth.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>TwitterOAuth an OAuth library that provides the basic functions required for authorization.</description>
+    <summary>TwitterOAuth an OAuth library for .net apps</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>twitter twitter oauth twitter auth</tags>
+  </metadata>
+</package>

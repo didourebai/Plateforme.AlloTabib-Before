@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>scipbe.common.office</id>
+    <version>1.3</version>
+    <title>ScipBe.Common.Office</title>
+    <authors>Stefan Cruysberghs</authors>
+    <owners>Stefan Cruysberghs</owners>
+    <licenseUrl>http://www.mozilla.org/MPL/MPL-1.1.html</licenseUrl>
+    <projectUrl>http://www.scip.be/index.php?Page=ComponentsNETOfficeItems</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The ScipBe.Common.Office namespace contains 3 classes: OutlookProvider (LINQ to Outlook), OneNoteProvider (LINQ to OneNote) and ExcelProvider (LINQ to Excel). The OutlookProvider is a wrapper class which provides IEnumerable collections to data of the COM interface of Outlook ( appointments, contacts, mails, tasks, ...). The OneNoteProvider provides collections of notebooks, sections and pages by manipulating the XML hierarchy tree of OneNote. And the ExcelProvider loads an Excel worksheet and provides column definition and row collections. All collections are IEnumerable so you can query them with LINQ.
+Although the ExcelProvider will work standalone, if you want to use the OutlookProvider and/or OneNoteProvider you must also include a reference to Microsoft.Office.Interop.Outlook and/or Microsoft.Office.Interop.OneNote.</description>
+    <summary>The ScipBe.Common.Office namespace contains 3 classes: OutlookProvider (LINQ to Outlook), OneNoteProvider (LINQ to OneNote) and ExcelProvider (LINQ to Excel). The OutlookProvider is a wrapper class which provides IEnumerable collections to data of the COM interface of Outlook ( appointments, contacts, mails, tasks, ...). The OneNoteProvider provides collections of notebooks, sections and pages by manipulating the XML hierarchy tree of OneNote. And the ExcelProvider loads an Excel worksheet and provides column definition and row collections. All collections are IEnumerable so you can query them with LINQ.
+Although the ExcelProvider will work standalone, if you want to use the OutlookProvider and/or OneNoteProvider you must also include a reference to Microsoft.Office.Interop.Outlook and/or Microsoft.Office.Interop.OneNote.</summary>
+    <tags>linq .net35 .net40 office excel outlook onenote wrapper</tags>
+  </metadata>
+</package>
