@@ -1,0 +1,61 @@
+﻿
+	  <div id="login-page" class="container" style="padding-bottom: 2em;">
+	     
+	          <form name ="form-login" class="form-login" style="border: 3px solid #68dff0; padding-top: 10px;padding-left: 10px;padding-right: 10px;border-radius: 25px;">
+	              <h2 class="form-login-heading">Connectez vous à votre espace</h2>
+	              <div class="login-wrap">
+	                  <input type="text" class="form-control" placeholder="Login" >
+	                  <br>
+	                  <input type="password" class="form-control" placeholder="Mot de passe">
+	                  <label class="checkbox" style="padding-bottom: 50px;padding-top: 20px;">
+	                      <span class="pull-right">
+	                          <button id="motpasseoublie" title="cliquer ici pour récupérer votre mot de passe" type="button" class="btn btn-danger" data-toggle="modal" data-target="#forgetPassword" data-ng-click="forgetPassword()"> <span class="glyphicon glyphicon-hand-up"></span> Mot de passe oublié ?</button>
+	                      </span>
+	                  </label>
+	                  <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> Valider</button>
+	                  <hr>
+		            
+	                  <div class="login-social-link centered">
+	                     <!--à ajouter ici une image ou un truc-->
+	                  </div>
+	                  <div class="registration" >
+	                      Vous n'avez pas un compte ?<br/>
+	                      <button class="btn btn-success"  type="button" data-ng-click="creerComptePraticien();">
+	                          Créer un compte praticien
+	                      </button>
+	                  </div>
+		
+	              </div>
+		
+	              <!-- Modal -->
+	              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="forgetPassword" class="modal fade">
+	                  <div class="modal-dialog">
+	                      <div class="modal-content">
+	                          <div class="modal-header">
+	                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                              <h4 class="modal-title">Mot de passe oublié ?</h4>
+	                          </div>
+	                            <div class="modal-body">
+                      
+	                              <p>Entrer votre Email pour initialiser votre compte.</p>
+                                  
+	                              <input type="text" name="email" placeholder="Email" autocomplete="off" data-ng-model="forgetPasswordEmail" class="form-control placeholder-no-fix" required="">
+	                              <div class="alert alert-danger input-error-alert" data-ng-show="form-login.email.$invalid && form-login.email.$dirty&& showValidationErrorForTitle">
+	                                  <small class="error" data-ng-show="showValidationErrorForTitle.$error.required">Veuillez introduire votre Email</small>
+	                              </div>
+                               
+	                          </div>
+	                          <div class="modal-footer">
+	                              <button data-dismiss="modal" class="btn btn-default" type="button" data-ng-click="cancelForgetPassword()">Cancel</button>
+	                              <button class="btn btn-theme" type="button">Valider</button>
+                                  
+	                          </div>
+	                      </div>
+	                  </div>
+	              </div>
+	              <!-- modal -->
+	
+	          </form>	  	
+	  
+	  </div>
+ 

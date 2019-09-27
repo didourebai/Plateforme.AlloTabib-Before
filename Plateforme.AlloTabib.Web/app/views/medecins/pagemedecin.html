@@ -1,0 +1,142 @@
+﻿
+<link rel="stylesheet" type="text/css" href="../../../Content/pagedoctor.css" /> 
+
+<div id="content-wrapper" >
+    <div id="content">
+        <header id="header">
+            <a href="#" class="image avatar"><img src="../../../Content/images/avatar.jpg" alt="" /></a>
+            <h3>
+                <strong>Dr</strong> {{praticien.nomPrenom}}<br />
+                {{praticien.specialite}}<br />
+                {{praticien.gouvernerat}}
+            </h3>
+            <h3 data-ng-show="praticien.conventionne == 'True'">
+                Conventionné
+            </h3>
+            <h3 data-ng-show="praticien.conventionne == 'True'">
+                <img src="../../../Images/cnam1.JPG" alt="Cnam" />
+            </h3>
+            <h3>
+                Tél :  {{praticien.telephone}}
+            </h3>  
+        </header>
+
+        <!-- Main -->
+        <div id="main" style=" -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; behavior: url(/PIE.htc);">
+
+            <div class="row">
+                <div class="col-sm-7 col-xs-12">
+                    <div class="row">
+                        <div class="col-sm-9 col-xs-8">
+                            <div style="width: 500px; height: 300px;" id="googleMap"></div>
+                        </div>
+                        <div class="col-sm-3 col-xs-3">
+
+
+                            <div class="panel panel-info" style="width: 150%;">
+                                <div class="panel-heading">
+                                    <h4 >
+                                        <b style="color: white;">Dr <span itemprop="name">{{praticien.nomPrenom}}</span></b>  
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <h5>
+                                        <i class="fa fa-user-md fa-2x" style="color: #435f71"></i>
+                                        <span class="clear"></span><span itemprop="jobTitle"> {{praticien.specialite}}</span>
+                                    </h5>
+                                    <span>Téléphone : {{praticien.telephone}}</span>
+                                    <h5 data-ng-show="informationsPratique != ''">
+                                        {{praticien.adresse}}
+                                    </h5>
+                                    <button class="btn btn-alternate" data-ng-click="afficherCalendrier();">
+                                        Prendre rendez-vous
+                                    </button>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr>
+                        <div class="col-sm-6">
+                            <h4>Présentation</h4>
+                            <p itemprop="description">
+                                Le Docteur {{praticien.nomPrenom}}  vous accueille dans son cabinet, dans le {{praticien.adresse}} - {{praticien.delegation}} de {{praticien.gouvernerat}}.
+                                <span data-ng-show="informationsPratique != ''">Son cabinet est situé sur {{praticien.informationsPratique}} </span>
+
+                            </p>
+                            <p>
+                                 <h4>Langues parlées :</h4> {{praticien.languesParles}}
+                            </p>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>Prix de consultation</h4>
+                                    <strong>
+                                        {{praticien.prixConsultation}} (TND)
+                                    </strong>
+                                    <br/>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>Moyens de paiement</h4>
+                                    <p>{{praticien.moyensPaiement}}</p>
+                                    <br />
+
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>Diplomes</h4>
+                                    <p>{{praticien.diplomes}}</p>
+                                    <br />
+
+                                </div>
+                            </div>
+                          
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4>Parcours hospitalier</h4>
+                                    <p>{{praticien.parcoursHospitalier}}</p>
+                                    <br />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="m">
+                        <i class="fa fa fa-user fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="4u$ 12u$(small)">
+                <ul class="labeled-icons">
+                    <li>
+                        <h3 class="icon fa-home"><span class="label">Equipe</span></h3>
+                        AlloTabib
+                    </li>
+                    <!--<li>
+                <h3 class="icon fa-mobile"><span class="label">Téléphone</span></h3>
+                000-000-0000
+            </li>-->
+                    <li>
+                        <h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+                        <a href="#">contact@allotabib.net</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>

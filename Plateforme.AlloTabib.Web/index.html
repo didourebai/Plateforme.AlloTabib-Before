@@ -1,0 +1,626 @@
+﻿<!doctype html>
+<html class="no-js" lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="prendre un rendez vous médical en ligne">
+    <meta name="author" content="">
+    <meta name="msvalidate.01" content="CE38A1CBFD8DFEADF5F28D9C36FC6C4E" />
+
+    <title>Premier site de prise de rendez vous en Tunisie</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/bootstrap-flatly.min.css" rel="stylesheet">
+    <link href="../Content/font-awesome.min.css" rel="stylesheet">
+
+    <link href="Content/toastr.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="../Content/half-slider.css" rel="stylesheet">
+    <link href="../Content/animate.css" rel="stylesheet">
+    <link href="../Content/prettyPhoto.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Content/jquery.countdown.css" />
+    <link rel="stylesheet" href="../Content/animate.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Amaranth">
+    <link rel="stylesheet" href="../Content/main.css">
+    <!--<link rel="stylesheet" href="../Content/jquery.enjoyhint.css">-->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body data-ng-app="app">
+
+    <div id="wrapper" style="background-color:white;">
+
+        <!-- Add your site or application content here -->
+
+        <nav id="changeNav" class="navbar navbar-inverse navbar-fixed-top navbar-style searchBar action-background-navbar" role="navigation" data-ng-controller="navigationController" ng-cloak>
+
+            <a ui-sref="home"> <img src="http://res.cloudinary.com/allotabib/image/upload/v1431531427/logo_f_grpev6.png" class="brand log-img " alt="Allo Tabib"></a>
+
+
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header" style="background-color:#2c3e50;">
+                        <img src="http://res.cloudinary.com/allotabib/image/upload/v1431531427/logo_f_grpev6.png" alt="allotabib" style="float:left;width:100px;height:50px;" class="logo-mobile" />
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="true" aria-controls="navbar" data-target=".navbar-collapse" style="float: right;background-color:#2c3e50;border-color:#2c3e50;">
+                            <span class="sr-only">AlloTabib navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse style-nav-mobile">
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li id="Li2" data-ng-class="{'active':isActive('/home')}">
+                                <a data-original-title="Allo Tabib : présentation." class="active" ui-sref="home">
+                                    <i aria-hidden="true" class="icon fa fa-home clear-fix" style=" border-radius: 30px; border-color: darkblue;"></i>
+                                    <span>Accueil</span>
+                                </a>
+                            </li>
+                            <li id="Li3" data-ng-class="{'active':isActive('/inscriptions')}" data-ng-if="!isAuth">
+                                <a data-original-title="Inscription au service AlloTabib." class="disable-click"  ui-sref="inscriptions" data-ng-if="!isAuth">
+
+                                    <i aria-hidden="true" class="fa fa-inbox clear-fix icon"></i>
+
+                                    <span data-ng-if="!isAuth">Inscription</span>
+                                </a>
+                            </li>
+
+                            <li id="Li1" data-ng-class="{'active':isActive('/service')}">
+                                <a data-original-title="Notre service AlloTabib." class="disable-click"  ui-sref="service">
+
+                                    <i aria-hidden="true" class="fa fa-stack-exchange clear-fix icon"></i>
+
+                                    <span>Services</span>
+                                </a>
+                            </li>
+
+                            <li id="Li1" data-ng-class="{'active':isActive('/blog')}">
+                                <a data-original-title="Blog AlloTabib." class="disable-click" ui-sref="blog">
+
+                                    <i aria-hidden="true" class="fa fa-stack-exchange clear-fix icon"></i>
+
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                            <li data-ng-class="{'active':isActive('/mesrendezvous')}" data-ng-if="isAuth">
+                                <a data-original-title="Mes rendez vous." class="disable-click"  ui-sref="mesrendezvous" data-ng-if="isAuth">
+
+                                    <i aria-hidden="true" class="fa fa-file-archive-o clear-fix icon"></i>
+
+                                    <span data-ng-if="isAuth">Mes rendez vous</span>
+                                </a>
+                            </li>
+                            <li data-ng-class="{'active':isActive('/monCompte')}" data-ng-if="isAuth">
+                                <a data-original-title="Mes rendez vous." class="disable-click"  ui-sref="monCompte" data-ng-if="isAuth">
+
+                                    <i aria-hidden="true" class="fa fa-file-archive-o clear-fix icon"></i>
+
+                                    <span data-ng-if="isAuth">Gérer mon compte</span>
+                                </a>
+                            </li>
+
+
+                            <li data-ng-class="{'active':isActive('/loginpatient')}" data-ng-if="!isAuth">
+
+                                <a data-original-title="Connectez-vous." class="disable-click"  ui-sref="loginpatient" data-ng-if="!isAuth">
+
+                                    <i aria-hidden="true" class="fa fa-lock clear-fix icon"></i>
+
+                                    <span data-ng-if="!isAuth"> Connexion</span>
+                                </a>
+                            </li>
+
+                            <li data-ng-class="{'active':isActive('/contact')}">
+                                <a data-original-title="Espace Praticien." class="disable-click"  ui-sref="contact">
+
+                                    <i aria-hidden="true" class="fa fa-envelope clear-fix icon"></i>
+
+                                    <span>Contact</span>
+                                </a>
+                            </li>
+                            <li class="dropdown class-mobile" data-ng-if="isAuth">
+                                <a ui-sref="#" data-toggle="dropdown" class="dropdown-toggle" data-ng-if="isAuth"><i class="fa fa-user"></i> {{userName}} <b class="caret"></b></a>
+                                <ul class="dropdown-menu navbar-nav-ul">
+                                    <li class="btn btn-info" data-ng-if="isAuth"><a data-ng-click="logout()" data-ng-if="isAuth"><span class="fa fa-sign-out icon-space" data-ng-if="isAuth"></span> Déconnexion</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav class-web" data-ng-if="isAuth">
+                            <li class="dropdown">
+                                <a ui-sref="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i>  <span>{{userName}}</span> <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="margin-right: 10%;margin-left: 10%;width:100%;">
+                                    <!-- User image -->
+                                    <li class="user-header bg-light-blue" style="text-align: center;">
+                                        <!--<img src="../../../Images/contact.png" class="img-circle" alt="User Image" />-->
+                                        <p>
+                                            {{userName}}
+
+                                        </p>
+                                        <p>
+                                            <small style="color:#fff;font-weight:bold;">Bonjour !</small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    <li class="user-body">
+
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <!--<div style="float: left;margin-left: 10px;margin-right: 10px;">
+                                            <a ui-sref="moncompte" class="btn btn-default btn-flat">Profile</a>
+                                        </div>-->
+                                        <div style="margin-left: 5%; margin-right: 5%; margin-bottom:5%;text-align:center;">
+                                            <a ui-sref="#" class="btn btn-default btn-flat" data-ng-click="logout()">Déconnexion</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <!-- /inner -->
+        </nav>
+
+            <div data-ui-view=""></div>
+        
+        <div class="fixedSocial">
+            <div>
+                <a href="https://twitter.com/Allotabib" target="_blanc" class="icon circle fa-twitter"><span class="label">Twitter</span></a>
+            </div>
+            <div>
+                <a href="https://www.facebook.com/pages/Allo-Tabib/588470344608462?fref=ts" target="_blanc" class="icon circle fa-facebook"><span class="label">Facebook</span></a>
+            </div>
+            <div>
+                <!--<a href="https://plus.google.com/105904404788295601250" target="_blanc" class="icon circle fa-google-plus"><span class="label">Google+</span></a>-->
+                <div>
+                    <a href="//plus.google.com/u/0/118169034754164476980?prsrc=3" rel="publisher" target="_target" style="text-decoration:none;">
+                        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;" target="_blanc" class="icon circle fa-google-plus">
+                    </a>
+
+                </div>
+            </div>
+            <div>
+                <a href="https://www.youtube.com/playlist?list=PLurUo26ozDbfxmWWQLSfB-n4NFPMIa_SM" target="_blanc" class="icon circle fa-youtube"><span class="label">Chaine youtube</span></a>
+            </div>
+        </div>
+        <!--/#bottom-->
+        <div id="footer">
+            <div class="wet-asphalt" style="padding-bottom: 5%; box-shadow: 1px 1px 12px #555; font-weight: bold;">
+                <div class="container">
+                    <div class="row" style="padding-top: 4%; padding-bottom: 4%;background-repeat: no-repeat;  background-position: center;">
+                        <div class="col-md-4 col-sm-4">
+                            <h4 style="color: white">
+                                <span class="fa fa-hospital-o fa-lg"></span>
+                                <span>À propos de AlloTabib</span>
+                            </h4>
+                            <hr style="color: white;" />
+                            <div>
+                                <ul class="arrow">
+                                    <li><a ui-sref="home">Qui sommes nous ?</a></li>
+                                    <li><a ui-sref="service">Services AlloTabib</a></li>
+                                    <li><a ui-sref="inscrirepraticien">Vous êtes un praticien ?</a></li>
+                                    <li><a ui-sref="inscription">Vous êtes un patient ?</a></li>
+                                    <li><a ui-sref="mentionsLegales">Mentions légales</a></li>
+                                    <li><a ui-sref="contact">Nous contactez ?</a></li>
+                                </ul>
+                                <!-- Placez ce code à l&#39;endroit où vous souhaitez voir le badge s&#39;afficher. -->
+                                <a href="//plus.google.com/u/0/118169034754164476980?prsrc=3"
+                                   rel="publisher" target="_top" style="text-decoration:none;">
+                                    <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;width:32px;height:32px;" />
+                                </a>
+                            </div>
+                        </div><!--/.col-md-3-->
+                        <div class="col-md-4 col-sm-4" data-ng-controller="homeController">
+                            <h4 style="color: white">
+                                <span class="fa fa-user-md fa-lg"></span>
+                                <span>Recherche spécialités fréquentes</span>
+                            </h4>
+                            <hr style="color: white;" />
+                            <div class="media">
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('ANGIOLOGIE')"><small class="muted">ANGIOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('CARDIOLOGIE')"><small class="muted">CARDIOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('DENTISTE')"><small class="muted">DENTISTE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('CHIRURGIE GENERALE')"><small class="muted">CHIRURGIE GENERALE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('CHIRURGIE ORTHOPEDIQUE')"><small class="muted">CHIRURGIE ORTHOPEDIQUE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('DERMATOLOGIE')"><small class="muted">DERMATOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('ENDOCRINOLOGIE')"><small class="muted">ENDOCRINOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('GASTRO-HEPATHOLOGIE')"><small class="muted">GASTRO-HEPATHOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('GYNECOLOGIE-OBSTETRIQUE')"><small class="muted">GYNECOLOGIE-OBSTETRIQUE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#" data-ng-click="searchBySpeciality('CHIRURGIE-ESTHETIQUE')"><small class="muted">CHIRURGIE-ESTHETIQUE</small></a>
+                                </div>
+                                <!--<div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('MEDECINE GENERALE')"><small class="muted">MEDECINE GENERALE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('NEUROCHIRURGIE')"><small class="muted">NEUROCHIRURGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('NEUROCHIRURGIE')"><small class="muted">OPHTALMOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('ORL ET STOMATOLOGIE')"><small class="muted">ORL ET STOMATOLOGIE</small></a>
+                                </div>
+
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('ORTHODONTIE')"><small class="muted">ORTHODONTIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('PEDIATRIE')"><small class="muted">PEDIATRIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('PNEUMOLOGIE')"><small class="muted">PNEUMOLOGIE</small></a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"  data-ng-click="searchBySpeciality('UROLOGIE')"><small class="muted">PNEUMOLOGIE</small></a>
+                                </div>-->
+
+
+                            </div>
+                        </div><!--/.col-md-3-->
+                        <!--<div class="col-md-3 col-sm-3">
+                                           Liste des gouvernerats
+                                       </div>-->
+                        <!-- Ajouter les gouvernerats !!! avec des liens -->
+                        <!--<div class="col-md-3 col-sm-3">
+                            <h4>Nouvelles et médias</h4>
+                            <hr style="color: white;" />
+                            <div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="Images/thd.png" style="width:100px;height: 50px;" />
+                                    </div>
+                                    <div class="media-body text-justified">
+                                        <span class="media-heading"><a href="http://www.thd.tn/index.php?option=com_content&view=article&id=4463:allotabib-net-un-nouveau-site-tunisien-pour-chercher-le-medecin-le-plus-proche-de-chez-vous&catid=58&Itemid=88"><b style="text-shadow: 2px 2px 2px #000;">Tunisie haut débit</b></a></span><br />
+                                        <small class="muted text-justified">AlloTabib.net : Un nouveau site tunisien pour chercher le médecin le plus proche de chez vous</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="Images/shems.png" style="width:100px;height: 50px;" />
+                                    </div>
+                                    <div class="media-body text-justified">
+                                        <span class="media-heading"><a href="http://www.facebook.com/sharer.php?u=http://www.shemsfm.net/uploads/replay/media_temp_1427740397.mp3"><b style="text-shadow: 2px 2px 2px #000;">Radio ShemsFM - TechWaves</b></a></span><br />
+                                        <small class="muted text-justified">Gagnez du temps chez le médecins avec AlloTabib.net</small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="Images/afman.jpg" style="width:100px;height: 50px;" />
+                                    </div>
+                                    <div class="media-body text-justified">
+                                        <span class="media-heading"><a href="http://www.africanmanager.com/183423.html"><b style="text-shadow: 2px 2px 2px #000;">African Manager</b></a></span><br />
+                                        <small class="muted text-justified">Tunis : Lancement d’un nouveau un site web baptisé « Allo Tabib » </small>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img src="Images/femmesTuni.png" style="width:100px;height: 50px;" />
+                                    </div>
+                                    <div class="media-body text-justified">
+                                        <span class="media-heading"><a href="http://femmesdetunisie.com/blog/allotabib-net-la-plateforme-de-gestion-des-rendez-vous-medicaux/"><b style="text-shadow: 2px 2px 2px #000;">Femmes de Tunisie</b></a></span><br />
+                                        <small class="muted text-justified">AlloTabib.net : une plateforme de gestion des rendez-vous médicaux</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <!--/.col-md-3-->
+                        <div class="col-md-4 col-sm-4">
+                            <div class="media-body">
+                                <h4 style="color: white">
+                                    <span class="fa fa-envelope fa-lg clear-fix"></span>
+                                    <span>Email : contact@allotabib.net</span>
+                                </h4>
+                                <hr style="color: white;" />
+
+                                <div style="height:300px;">
+                                    <a class="twitter-timeline" href="https://twitter.com/Allotabib" data-widget-id="603241080600076288">Tweets de @Allotabib</a>
+                                    <script>
+                                        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
+                                    </script>
+                                </div>
+                            </div>
+
+
+
+
+                        </div> <!--/.col-md-3-->
+                    </div>
+                </div>
+            </div>
+            <div class="midnight-blue" style="padding-bottom: 1%;">
+                <!-- start footer1 -->
+                <div class="container">
+                    <div class="footer1">
+                        <div class="copy pull-left">
+                            <p class="link" style="font-size: 100%;"><span>&#169; 2015 Tous droits sont réservés à l'équipe AlloTabib </span></p>
+                        </div>
+                        <div class="soc_icons pull-right">
+                            <ul class="icons list-unstyled text-center">
+                                <li><a href="mentionsLegales" style="color: white;" target="_blanc"><i class="fa" style="font-size: 100%;">Mentions légales et Conditions Générales d'Utilisation</i></a></li>
+                                <li><a href="https://twitter.com/Allotabib" target="_blanc" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="https://www.facebook.com/pages/Allo-Tabib/588470344608462?fref=ts" target="_blanc" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+                                <li>
+                                    <a href="//plus.google.com/u/0/118169034754164476980?prsrc=3" rel="publisher" target="_target" style="text-decoration:none;">
+                                        <img src="//ssl.gstatic.com/images/icons/gplus-32.png" alt="Google+" style="border:0;" target="_blanc" class="icon circle fa-google-plus">
+                                    </a>
+                                </li>
+                                <li><a href="https://www.youtube.com/playlist?list=PLurUo26ozDbfxmWWQLSfB-n4NFPMIa_SM" target="_blanc" class="icon circle fa-youtube"><span class="label">Chaine youtube</span></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="../Scripts/es5-shim/es5-shim.js"></script>
+    <script src="../Scripts/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="Scripts/jquery.js"></script>
+
+
+    <!--<script src="Scripts/enjoyhint.js"></script>
+    <script src="Scripts/jquery.enjoyhint.js"></script>-->
+    <script src="Scripts/kinetic.min.js"></script>
+
+<script src="Scripts/angular/angular.min.js"></script>
+
+
+    <script src="../Scripts/jquery.backstretch.min.js"></script>
+
+    <!--  <script src="../Scripts/jquery.countdown.js"></script>-->
+    <script src="Scripts/toastr.min.js"></script>
+    <script src="../Scripts/Jquery.Block.js"></script>
+    <script src="../Scripts/jquery.marquee.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/angular/angular.min.js"></script>
+    <script src="../Scripts/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script src="Scripts/angular-touch.min.js"></script>
+    <script src="../Scripts/json3/json3.js"></script>
+    <script src="../Scripts/bootstrap-sass-official/bootstrap/affix.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/transition.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/carousel.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/collapse.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/alert.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/button.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/dropdown.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tab.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/scrollspy.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tooltip.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/popover.js"></script>
+    <script src="../Scripts/angular-resource/angular-resource.js"></script>
+    <script src="../Scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="../Scripts/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../Scripts/angular-animate/angular-animate.js"></script>
+    <script src="../Scripts/angular-touch/angular-touch.js"></script>
+    <script src="../Scripts/angular-route/angular-route.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="../Scripts/jquery.infinitescroll.min.js"></script>
+    <script src="../Scripts/angular-recaptcha.min.js"></script>
+
+   
+
+    <script src="Scripts/ng-clip.min.js"></script>
+    <script src="Scripts/Jquery.Block.js"></script>
+    <script src="Scripts/angular-strap/dist/modules/ng-clip.js"></script>
+    <script src="Scripts/ZeroClipboard/ZeroClipboard.js"></script>
+    <!--<script src="Scripts/fusionCharts/js/fusioncharts.js"></script>-->
+    <script src="Scripts/ocLazyLoad.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <!--<script src="Scripts/fusionCharts/js/themes/fusioncharts.theme.zune.js"></script>-->
+    <!--for google Map-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="/app/app.js"></script>
+    <script src="app/services/managerServices/authService.js"></script>
+    <script src="app/services/patientServices/patientApiServices.js"></script>
+    <script src="app/services/praticienServices/praticienApiServices.js"></script>
+    <script src="app/services/contactServices/contactApiServices.js"></script>
+    <script src="app/services/contactServices/contactApiServices.js"></script>
+    <script src="app/services/praticienServices/searchPraticienServices.js"></script>
+    <script src="app/services/rendezvousServices/rendezvousApiServices.js"></script>
+
+    <script src="app/controllers/navigationController.js"></script>
+    <script src="app/controllers/demoController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/contactController.js"></script>
+    <script src="app/controllers/inscriptionController.js"></script>
+    <script src="app/controllers/offresController.js"></script>
+    <script src="app/controllers/inscriptionPraticienController.js"></script>
+    <script src="app/controllers/praticienController.js"></script>
+    <script src="app/controllers/rendezVousController.js"></script>
+    <script src="app/controllers/priseRendezVousController.js"></script>
+    <script src="app/controllers/confirmRdvModalController.js"></script>
+    <script src="app/controllers/suivreMesRdvController.js"></script>
+    <script src="app/controllers/profilemedecinController.js"></script>
+    <script src="app/controllers/monCompteController.js"></script>
+    <script src="app/controllers/blogController.js"></script>
+    <script src="app/controllers/configurationController.js"></script>
+
+    <!-- endbuild -->
+    <!--Load services-->
+    <!--            <script type=" text />javascript" src="../Scripts/kinetic-v5.1.0.min.js"></script>
+                <script type="text/javascript" src="../Scripts/jquery.final-countdown.js"></script>-->
+    <!-- Script to Activate the Carousel -->
+    <script src="https://apis.google.com/js/platform.js" async defer>
+        { lang: "fr" }
+    </script>
+<script>
+    window.scrollTo(0, 0);
+    $.blockUI();
+    $('.carousel').carousel({
+        interval: 3000
+    });
+    //google analatycs
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-60387537-1', 'auto');
+    //ga('send', 'pageview');
+
+    // window.addEventListener("load", function () { alert("Page chargée !"); }, false);
+    document.addEventListener("DOMContentLoaded", function() { $.unblockUI(); }, false);
+
+    $('.popover-title').css("backgrouond-color", "#9FC53B");
+    $('.popover').css("background-color", "red");
+    $("[data-toggle=popover]").popover({
+        html: true,
+        content: function() {
+            return $('#popover-content').html();
+        }
+    });
+
+
+    $('body').on('click', function(e) {
+        $('[data-toggle="popover"]').each(function() {
+            //the 'is' for buttons that trigger popups
+            //the 'has' for icons within a button that triggers a popup
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+                window.scrollTo(0, 0);
+            }
+        });
+    });
+
+
+    $(".collapse").collapse();
+    $(".navbar-collapse").collapse('hide');
+
+    $(document).on('click', '.navbar-collapse.in', function(e) {
+
+        if ($(e.target).is('a') && ($(e.target).attr('class') != 'dropdown-toggle')) {
+            $(this).collapse('hide');
+        }
+
+    });
+
+    $(".navbar-inverse .navbar-nav>li>a>i").addClass("icon-color");
+    $(".navbar-inverse .navbar-nav>li>a>span").addClass("span-color");
+    $("nav>a>img").addClass("logo-css-src");
+
+    $(window).scroll(function() {
+
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 10) {
+            $(".action-background-navbar").addClass("scrolling");
+            $(".action-background-navbar").addClass("box fade-in one");
+            $(".actions-and-search-container").addClass("actions-and-search-margin-top");
+            $(".search-mobile").addClass("actions-and-search-margin-top");
+            $(".navbar-inverse .navbar-nav>li>a").addClass("navbar-color-white");
+
+            $(".navbar-inverse .navbar-nav>li>a>i").removeClass("icon-color");
+            $(".navbar-inverse .navbar-nav>li>a>span").removeClass("span-color");
+            $("nav>a>img").removeClass("logo-css-src");
+            $("nav>a>img").addClass("logo-css-src-scroller");
+
+
+            //Ajouter animation
+
+
+        } else {
+
+            $(".navbar-inverse .navbar-nav>li>a>i").addClass("icon-color");
+            $(".navbar-inverse .navbar-nav>li>a>span").addClass("span-color");
+
+            $(".action-background-navbar").removeClass("scrolling");
+            $(".action-background-navbar").removeClass("box fade-in one");
+            $(".actions-and-search-container").removeClass("actions-and-search-margin-top");
+            $(".search-mobile").removeClass("actions-and-search-margin-top");
+            $(".navbar-inverse .navbar-nav > li > a").removeClass("navbar-color-white");
+
+            $("nav>a>img").removeClass("logo-css-src-scroller");
+            $("nav>a>img").addClass("logo-css-src");
+        }
+    });
+
+    /* Module de chat*/
+    window.$zopim || (function(d, s) {
+        var z = $zopim = function(c) { z._.push(c) },
+            $ = z.s =
+                d.createElement(s),
+            e = d.getElementsByTagName(s)[0];
+        z.set = function(o) {
+            z.set.
+                _.push(o);
+        };
+        z._ = [];
+        z.set._ = [];
+        $.async = !0;
+        $.setAttribute("charset", "utf-8");
+        $.src = "//v2.zopim.com/?2yZCXOvMVcrjvP5m67u507MP8tyYw3b1";
+        z.t = +new Date;
+        $.
+            type = "text/javascript";
+        e.parentNode.insertBefore($, e);
+    })(document, "script");
+    
+</script>
+
+</body>
+
+</html>
+

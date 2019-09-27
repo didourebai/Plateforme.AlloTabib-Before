@@ -1,0 +1,232 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Mon compte
+    </h2>
+</section>
+<section style="padding-bottom:5%;" class="section-body">
+    <div class="container" style="padding-bottom:10%;">
+        <a id="haut"></a>
+        <!--<div class="panel panel-danger" data-ng-show="addHasErrors">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-warning-sign" style="font-size: 20px;">
+                                       </span>
+                <strong style="font-size: 20px; padding-left: 10px;">{{addErrorType}}</strong>
+            </div>
+            <div class="panel-body"><strong>{{errorMessageTxt}}</strong></div>
+        </div>-->
+
+
+        <br />
+
+
+        <div class="panel panel-info">
+
+            <div class="panel panel-body">
+
+                <div class="col-sm-6" style="background-color: #ebf1fa;">
+                    <h5 style="font-weight: bold;"><img src="../../../Images/inscription-patient.png" style="width: 50px;height: 50px;" />htCes données sont destinées au praticien, sont confidentielles</h5>
+                    <form class="form-horizontal" id="formupdatePatient" name="updatePatientForm" novalidate style="margin-top: 20px;margin-left: 20px;">
+                        <div class="form-group">
+
+                            <div class="col-sm-12">
+                                <div class="input-group input-width-email  {{loadInputClassForAdd(updatePatientForm.newEmail.$valid)}}">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-at"></i>
+                                    </div>
+                                    <input class="form-control" type="email" placeholder="Email" id="newEmail" name="newEmail" data-ng-change="inputChanged()" data-ng-model="updatePatient.email" required="" data-ng-click="Isclicked();" disabled>
+
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.newEmail.$invalid && updatePatientForm.newEmail.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.newEmail.$error.required">Veuillez introduire votre adresse électronique.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.newEmail.$error.email">Le format de l'email n'est pas correcte.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group input-width-email {{loadInputClassForAdd(updatePatientForm.formPassword.$valid)}}">
+                                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                    <input class="form-control" type="password" placeholder="Mot de passe" data-ng-change="inputChanged()" name="formPassword" data-ng-model="updatePatient.password" data-ng-minlength="5" data-ng-maxlength="20" required="" data-ng-click="Isclicked();">
+
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.formPassword.$invalid && updatePatientForm.formPassword.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.formPassword.$error.required">Veuillez introduire votre mot de passe.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.formPassword.$error.maxlength">Votre mot de passe ne doit pas dépasser 50 caractères.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.formPassword.$error.minlength">Votre mot de passe doit être composé de plus que 4 caractères.</small>
+                                    <!-- <small class="error" data-ng-show="updatePatientForm.formPassword.$error.pattern">Votre mot de passe n'est pas suffisament complexe. Pour l'améliorer, vous devez utiliser au moins une lettre en majuscule, un chiffre et un des caractères spéciaux !,@,#,$,%,^,&,*,?,_,~</small>-->
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="input-group input-width-email {{loadInputClassForAdd(updatePatientForm.password_c.$valid)}}">
+                                    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                    <input class="form-control" type="password" placeholder="Confirmer votre mot de passe" id="password_c" name="password_c" data-ng-model="updatePatient.password_c" valid-password-c="{{updatePatient.password===updatePatient.password_c}}" required="" data-ng-click="Isclicked();" />
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.password_c.$invalid && updatePatientForm.password_c.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.password_c.$error.required && updatePatientForm.password_c.$dirty">Veuillez confirmer votre mot de passe.</small>
+                                    <small class="error" data-ng-show="!updatePatientForm.password_c.$error.required && updatePatientForm.password_c.$error.noMatch">La confirmation ne correspond pas au mot de passe.</small>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTelephone" class="col-sm-5 control-label" style="text-align: left;">Téléphone</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.telephone.$valid)}}">
+                                    <div class="input-group-addon" style="width: 46px;"><i class="fa fa-mobile" style="font-size: 21px;"></i></div>
+                                    <input class="form-control" type="text" placeholder="Téléphone" data-ng-model="updatePatient.telephone" required="" name="telephone" data-ng-maxlength="15" data-ng-click="Isclicked();">
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.telephone.$invalid && updatePatientForm.telephone.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.telephone.$error.required">Veuillez Introduire votre téléphone.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.telephone.$error.maxlength">Le nombre de caractères ne doit pas dépasser 15 caractères.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCin" class="col-sm-5 control-label" style="text-align: left;">Numéro carte d'identité</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.cin.$valid)}}">
+                                    <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
+                                    <input class="form-control" type="text" placeholder="CIN" data-ng-pattern="/.*?([0-9]{8}).*?/" data-ng-model="updatePatient.cin" name="cin" required="" data-ng-minlength="8" data-ng-maxlength="8" data-ng-click="Isclicked();" disabled>
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.cin.$invalid && updatePatientForm.cin.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.cin.$error.required">Veuillez Introduire votre CIN.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.cin.$error.pattern">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.cin.$error.maxlength">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.cin.$error.minlength">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-5 control-label" style="text-align: left;">Nom et prénom</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.nomPrenom.$valid)}}">
+                                    <div class="input-group-addon" style="width: 46px;"><i class="fa fa-user"></i></div>
+                                    <input class="form-control" type="text" placeholder="Nom et prénom" data-ng-model="updatePatient.nomPrenom" name="nomPrenom" required="" data-ng-maxlength="70" data-ng-minlength="3" data-ng-click="Isclicked();">
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.nomPrenom.$invalid && updatePatientForm.nomPrenom.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.nomPrenom.$error.required">Veuillez Introduire votre nom et votre prénom séparé par un espace.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.nomPrenom.$error.maxlength">Le nombre de caractères ne doit pas dépasser 70 caractères.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.nomPrenom.$error.minlength">Le nombre de caractères doit être plus que 3 caractères caractères.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress" class="col-sm-5 control-label" style="text-align: left;">Adresse</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.adresse.$valid)}}">
+                                    <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+                                    <textarea class="form-control" placeholder="Adresse complète" data-ng-model="updatePatient.adresse" name="adresse" required="" data-ng-maxlength="150" data-ng-click="Isclicked();" />
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.adresse.$invalid && updatePatientForm.adresse.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.adresse.$error.required">Veuillez Introduire votre adresse.</small>
+                                    <small class="error" data-ng-show="updatePatientForm.adresse.$error.maxlength">Le nombre de caractères ne doit pas dépasser 150 caractères.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDateNaissance" class="col-sm-5 control-label" style="text-align: left;">Date de naissance</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.datenaissance.$valid)}}">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                    <input class="form-control" type="date" id="datenaissance" name="datenaissance" data-ng-model="updatePatient.datenaissance" required="" data-ng-click="Isclicked();" />
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.datenaissance.$invalid && updatePatientForm.datenaissance.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.datenaissance.$error.required && updatePatientForm.datenaissance.$dirty">Veuillez choisir votre date naissance.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCivilite" class="col-sm-5 control-label" style="text-align: left;">Sexe</label>
+                            <div class="col-sm-7">
+                                <div class="input-group input-width {{loadInputClassForAdd(updatePatientForm.civilite.$valid)}}">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-key"></i>
+                                    </div>
+
+                                    <input list="civiliteLst" class="form-control" type="text" placeholder="Sexe" id="civilite" name="civilite" data-ng-model="updatePatient.sexe" required="" data-ng-maxlength="25" />
+                                    <datalist id="civiliteLst">
+                                        <option>Homme</option>
+                                        <option>Femme</option>
+                                    </datalist>
+                                </div>
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.civilite.$invalid && updatePatientForm.civilite.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.civilite.$error.required && updatePatientForm.civilite.$dirty">Veuillez définir votre Sexe.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="well well-lg col-md-12" style="text-align: center;">
+                            <div class="form-group">
+                                <input type="checkbox" data-ng-model="conditions" required="" name="mentions"> J'accepte <a href="#/mentionsLegales">les mentions légales et les conditions générales d'utilisation </a> de AlloTabib.
+                                <div class="alert alert-danger" data-ng-show="updatePatientForm.mentions.$invalid && updatePatientForm.mentions.$dirty && !hideValidationError">
+                                    <small class="error" data-ng-show="updatePatientForm.mentions.$error.required">Veuillez confirmer votre acceptation sur les mentions légales et les conditions générales d'utilisation de AlloTabib.</small>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="float: right;padding-right: 30px;">
+                                <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove icon-space" id="cancelupdatePatientBtn"></span> Initialiser</button>
+                                <button type="submit" class="btn btn-primary" data-ng-click="modifierPatient()" data-loading-text="Loading..." id="updatePatientBtn"
+                                        data-ng-disabled="updatePatientForm.newEmail.$invalid||
+                        updatePatientForm.formPassword.$invalid||
+                        updatePatientForm.password_c.$invalid ||
+                        updatePatientForm.cin.$invalid ||
+                        updatePatientForm.nomPrenom.$invalid ||
+                        updatePatientForm.adresse.$invalid ||
+                        updatePatientForm.telephone.$invalid || updatePatientForm.mentions.$invalid">
+                                    <span class="glyphicon glyphicon-floppy-disk icon-space"></span> Modifier
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <blockquote>
+                        <p class="rose-color" style=""><span class="glyphicon glyphicon-info-sign" style="font-size:14px;"></span> Votre compte est crée avec votre CIN qui est votre identifiant unique chez AlloTabib</p>
+                        <small style="">Equipe <cite title="Source Title" style="">Allo Tabib</cite></small>
+                    </blockquote>
+                    <script src="../../../Scripts/polyfiller.js"></script>
+                    <script>
+                        //pour faire fonctionner input type = date sous firefox
+                        webshims.setOptions('forms-ext', { types: 'date' });
+                        webshims.polyfill('forms forms-ext');
+                    </script>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-md-12" style="text-align: center;">
+                        <img src="../../../Images/call-rdv.jpg" alt="prise rendez vous" style="width: 400px;height: 400px;" />
+                        <br /> <br /> <br />
+                    </div>
+
+                    <div style="text-align: justify;">
+                        <br /> <br />
+                        <h3 style="font-weight: bold;text-align: center;">Ce que offre AlloTabib</h3>
+                        <div>
+                            <img src="../../../Images/valid.png" style="width: 50px;height: 50px;" /> <span style=""> Vous cherchez un dentiste ou un médecin ?</span>
+                        </div>
+                        <div>
+                            <img src="../../../Images/valid.png" style="width: 50px;height: 50px;" /> <span style=""> Vous voulez avoir plus d'informations ?</span>
+                        </div>
+                        <div>
+                            <img src="../../../Images/valid.png" style="width: 50px;height: 50px;" /> <span style=""> Vous voulez prendre votre rendez en ligne ?</span>
+                        </div>
+                        <div>
+                            <img src="../../../Images/valid.png" style="width: 50px;height: 50px;" /> <span style=""> Vous voulez suivre vos consultations ?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    </div>
+
+
+</section>

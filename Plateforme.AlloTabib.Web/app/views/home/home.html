@@ -1,0 +1,433 @@
+﻿<!--<script type="text/javascript" src="../Scripts/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="../Scripts/jquery.final-countdown.js"></script>-->
+
+<style>
+    #home {
+        width: 100%;
+        height: 600px;
+    }
+
+
+</style>
+
+<script>
+    ////For counter deleted 05/01/2015
+    //var start = Math.round(new Date().getTime() / 1000);
+    //var d = new Date(2014, 12, 5);
+    //var end = Math.round(d.getTime() / 1000);
+
+    $('.product-showcase').backstretch([
+                              "http://res.cloudinary.com/allotabib/image/upload/v1437481441/2_ygd7uf.jpg",
+                     "http://res.cloudinary.com/allotabib/image/upload/v1431518258/bg5-allotabib_hlomqb.jpg",
+                     "http://res.cloudinary.com/allotabib/image/upload/v1431518406/background1_sgflam.jpg",
+                     "http://res.cloudinary.com/allotabib/image/upload/v1431518257/bg-allotabib_yilqsh.jpg",
+                      "http://res.cloudinary.com/allotabib/image/upload/v1437481442/1_dwflfz.jpg"
+    ], { duration: 3000, fade: 750 });
+    // deleted 05/01/2015
+    //$('.countdown').final_countdown({
+    //    'start': start,
+    //    'end': end,
+    //    'now': start
+    //});
+
+    
+</script>
+
+<div class="product-showcase boxed-blue" >
+    <div class="product-showcase-pattern">
+        <div class="container">
+            <div class="product-background">
+
+                <div class="alpha60">
+                    <h4 style="font-weight: bold; color: white;text-align: center;">
+                        Vous êtes un praticien ?
+                    </h4>
+                    <div>
+                        <div>
+                            <span>Vous gagnez du temps, vous renouvelez votre patientèle, vous réduisez vos rendez vous non planifiés et vous apportez un service innovatif aux patients.</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-top: 2%;">
+                        <a href="#/inscrirepraticien" class="btn btn-danger" style="text-align: center;">Inscrivez vous</a>
+                    </div>
+
+                </div>
+                <div class="alpha60" style="margin-right: 20%;">
+                    <h4 style="font-weight: bold; color: white;text-align: center;">
+                        Vous êtes un patient ?
+                    </h4>
+                    <div>
+                        <div>
+                            <span>
+                                Vous cherchez un médecin proche, vous voulez réserver un rendez vous en ligne sans rester en attente au téléphone et vous voulez suivre vos rendez vous pris.
+                            </span>
+                        </div>
+                    </div>
+                    <div style="text-align: center;margin-top: 2%;">
+                        <a href="#/inscription" class="btn btn-warning" style="text-align: center;">Inscrivez vous</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row navbar-fixed-top actions-and-search-row">
+    <!-- search input -->
+    <div class="container search-mobile">
+
+        <form class="form-horizontal " id="searchCriteria" name="searchPraticienForm" novalidate>
+            <div id="searchFieldsContainer">
+                <div class="controls">
+                    <h2>Recherche votre praticien le plus proche.<br>Prenez un rendez vous rapidement et facilement. </h2>
+                    <div id="mainFilters" data-test="mainFilters">
+
+                        <div>
+                            <div>Spécialité</div>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user-md fa-lg" style="color: #2c3e50;"></i>
+                                </div>
+                                <input list="specialiteLst" class="form-control" data-ng-enter="searchPraticien()" type="text" placeholder="Spécialité" data-ng-change="stateInputChanged()" id="specialite" name="specialite" data-ng-model="search.specialite" required data-ng-maxlength="25" />
+                                <datalist id="specialiteLst">
+                                    <option data-ng-repeat="specialite in specialites">{{specialite}}</option>
+                                </datalist>
+                            </div>
+
+
+                        </div>
+                        <div>
+
+                            <div>Gouvernerat</div>
+                            <div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-map-marker fa-lg"></i>
+                                    </div>
+                                    <input list="gouverneratLst" class="form-control" data-ng-enter="searchPraticien()" type="text" placeholder="Gouvernerat" data-ng-change="stateInputChanged()" id="gouvernerat" name="gouvernerat" data-ng-model="search.gouvernerat" required data-ng-maxlength="25" />
+                                    <datalist id="gouverneratLst">
+                                        <option data-ng-repeat="gouvernerat in gouvernerats">{{gouvernerat}}</option>
+                                    </datalist>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+
+                            <div>
+                                Nom praticien
+                            </div>
+                            <div>
+                                <input type="text" placeholder='Rechercher un praticien par son nom comme mot clé' class="form-control" data-ng-model="search.searchApp" data-ng-enter="searchPraticien()" />
+                            </div>
+
+                        </div>
+
+                        <div class="first_button_row">
+                            <div>
+
+                                <input type="submit" value="Trouver mon praticien" role="button" class="btn btn-warning" data-ng-click="searchPraticien()" data-ng-enter="searchPraticien()">
+
+
+                            </div>
+
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+    <div class="container actions-and-search-container">
+        <form class="form-horizontal " id="formAddPraticien" name="searchPraticienForm" novalidate>
+            <div class=" col-md-4 col-sm-4 col-xs-4" style=" z-index: 1;">
+                <div class="input-group">
+                    <div class="input-group nom-input-search">
+                        <input type="text" style="border-radius: 10px;" placeholder='Nom de votre médecin' class="form-control " data-ng-model="search.searchApp" data-ng-enter="searchPraticien()" />
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="input-group spec-input-search" style=" border-radius: 10px; z-index: 1;">
+
+                    <input list="specialiteLst" class="form-control" data-ng-enter="searchPraticien()" type="text" placeholder="Spécialité" id="specialite" name="specialite" data-ng-model="search.specialite" required="" data-ng-maxlength="25" />
+                    <datalist id="specialiteLst">
+                        <option data-ng-repeat="specialite in specialites">{{specialite}}</option>
+                    </datalist>
+                    <div class="input-group-addon">
+                        <i class="fa fa-user-md fa-lg" style="color: #2c3e50;"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="input-group gouv-input-search" style=" border-radius: 10px;  z-index: 1;">
+
+                    <input list="gouverneratLst" class="form-control" data-ng-enter="searchPraticien()" type="text" placeholder="Gouvernerat" data-ng-change="stateInputChanged(newPraticien.gouvernerat)" id="gouvernerat" name="gouvernerat" data-ng-model="search.gouvernerat" required="" data-ng-maxlength="25" />
+                    <datalist id="gouverneratLst">
+                        <option data-ng-repeat="gouvernerat in gouvernerats">{{gouvernerat}}</option>
+                    </datalist>
+                    <div class="input-group-addon">
+                        <i class="fa fa-map-marker fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-2">
+                <span class="input-group-btn">
+                    <button id="searchButton" style="background-color: #fdc400; border-radius: 10px;" type="button" data-ng-click="searchPraticien()" data-ng-enter="searchPraticien()" data-original-title="" class="btn btn-warning  app-list-search-btn input-btn-recherche"><span class="glyphicon glyphicon-search icon-space"></span>Rechercher</button>
+                </span>
+            </div>
+           
+            <!--<!--<span class="circle-ou">OU</span>-->
+        </form>
+    </div>
+</div>
+<br />
+
+<div class="container">
+    <!--<pre data-speed="2000" data-direction="right" class='marquee' style="color: #E92881; font-weight: bold; background-color: #bce8f1;width: 100%; ">
+Lancement de AlloTabib : phase d'inscription des praticiens en cours. Veuillez vous inscrire sur : <a href="#" data-ng-href="http://allotabib.net/index.html#/inscrirepraticien">http://allotabib.net/index.html#/inscrirepraticien</a>
+
+</pre>
+        <br />-->
+
+    <!--<div style="width: 40em; height: 20em;margin-top: 5%;" id="map"></div>-->
+
+
+    <section id="services" class="page-section colord fadeInLeft">
+        <div class="container">
+            <div class="row">
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="b1">
+                        <i class="circle"><img src="../../../Images/logo1.png" alt="" /></i>
+                        <h3>Qui sommes nous ?</h3>
+                        <p> Moteur de recherche des docteurs pour accéder à leurs agendas et prendre un rendez vous.</p>
+                        <p>
+                            La recherche est facile et rapide car nous trouvons les horaires de disponibilités des docteurs.
+                        </p>
+                        <p>
+                            Un simple click, on prend un rendez vous chez le médecin choisis.
+                        </p>
+
+
+                    </div>
+                </div>
+                <!-- end: -->
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="b1">
+                        <i class="circle"> <img src="../../../Images/a2.jpg" alt="" /></i>
+                        <h3>Pour patient</h3>
+                        <p>Recherche d'un praticien.</p>
+                        <p>Sélection d'une spécialité, localité ou nom du praticien.</p>
+                        <p>Choix d'un horaire convenable parmi toutes les disponibilités de votre praticien</p>
+                        <p> Prise d'un rendez-vous en 3 clics.</p>
+                    </div>
+                </div>
+                <!-- end: -->
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="b1">
+                        <i class="circle"> <img src="../../../Images/a3.jpg" alt="" /></i>
+                        <h3>Pour praticien</h3>
+                        <p>Gestion de planning / agenda pour les cabinets médicaux.</p>
+                        <p>Suivit de l'état d'un patient à travers son dossier médical.</p>
+                        <p>Service nouveau aux patients en Tunisie!</p>
+                        <p>Site Internet d'information.</p>
+                    </div>
+                </div>
+                <!-- end: -->
+                <!-- item -->
+                <div class="col-md-3 text-center">
+                    <div class="b1">
+                        <i class="circle"> <img src="../../../Images/a4.jpg" alt="" /></i>
+                        <h3>Allotabib</h3>
+                        <p>Révolution du quotidien des praticiens et celui des patients.</p>
+                        <p>Emails de confirmation de rendez-vous envoyés automatiquement.</p>
+                        <p>Géolocalisation de votre cabinet pour un accès rapide et simple.</p>
+                        <p>Service disponible 24h/24 et 7j/7</p>
+                    </div>
+                </div>
+                <!-- end:-->
+            </div>
+        </div>
+        <!--/.container-->
+    </section>
+
+
+
+    <!--<div class="row animated fadeInLeft">
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail well" style="border-color: #00253D;">
+                <img src="../../../Images/logo1.png" alt="" style="max-width: 100%;max-height: 100%;">
+                <div class="caption">
+                    <h4 style="text-align: center;">Qui sommes nous ?</h4>
+                    <p style="text-align : justify;">
+                        Il s'agit d'un moteur de recherche des docteurs pour accéder à leurs agendas et prendre un rendez vous.<br />
+                        La recherche est facile et rapide car on trouvera les heures de disponibilités des docteurs et en un simple click, on effectue notre réservation.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail well" style="border-color: #00253D;">
+                <img src="../../../Images/agenda.png" alt="" style="max-width: 100%; max-height: 100%; height: 50%; width: 158px; height: 155px;">
+                <div class="caption">
+                    <h4 style="text-align: center;">Dédié à ?</h4>
+                    <p style="text-align : justify;">
+                        Cette plateforme est composé de deux parties: <br />La première est réservé aux patients et une autre réservé aux docteurs.<br />
+                        Elle offre au patient la possibilité de consulter la liste des docteurs de différentes spécialités et au docteur de vérifier son agenda.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail well" style="border-color: #00253D;">
+                <img src="../../../Images/image2.png" alt="" style="max-width: 100%; max-height: 100%; width: 158px; height: 155px;">
+                <div class="caption">
+                    <h4 style="text-align: center;">Recherche de praticien</h4>
+                    <p style="text-align : justify;">
+                        Le patient est capable d'effectuer une recherche sur un docteur selon sa spécialité, son nom ou sa ville. <br />
+                        Il pourra avoir accès aux données supplémentaires tel que  numéro de téléphone, email, ou son agenda pour pouvoir réserver un rendez vous.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>--><!-- End row -->
+    
+    
+
+    <!--<div class="row" style="font-size: 14px;">
+
+            <div class="col-md-4 well">
+                <p style="text-align: center;">
+                    <img src="../../../Images/logo1.png" alt="Allo Tabib">
+                </p>
+                <h4 class="alert alert-warning" style="text-align: center;">Qui sommes nous ?</h4>
+                <p style="text-align : center;">
+                    Il s'agit d'un moteur de recherche des docteurs pour accéder à leurs agendas et prendre un rendez vous.<br />
+                    La recherche est facile et rapide car on trouvera les heures de disponibilités des docteurs et en un simple click, on pouvait effectuer notre réservation.
+
+
+
+                </p>
+            </div>
+            <div class="col-md-4 well">
+                <p style="text-align: center;">
+                    <img src="../../../Images/agenda.png" alt="Allo Tabib" style="width :158px; height:155px;">
+                </p>
+                <h4 class="alert alert-info" style="text-align: center;">Dédié à ?</h4>
+                <p style="text-align : justify;">
+                    Cette plateforme est composé de deux parties : une réservé aux patients et une autre réservé aux docteurs.<br />
+                    Elle offre au patient la possibilité de consulter la liste des docteurs de différentes spécialités et au docteur de vérifier son agenda.
+                </p>
+            </div>
+            <div class="col-md-4 well">
+                <p style="text-align: center;">
+                    <img src="../../../Images/image2.png" alt="Allo Tabib" style="width :158px; height:155px;">
+                </p>
+                <h4 class="alert alert-success" style="text-align: center;">Recherche de praticien proche</h4>
+                <p style="text-align : justify;">
+                    Le patient est capable d'effectuer une recherche sur un docteur par sa spécialité, son nom ou sa ville. <br />
+                    Il pourra avoir accès aux données supplémentaires tel que  numéro de téléphone, email, ou son agenda pour pouvoir réserver un rendez vous.
+                </p>
+            </div>
+
+        </div>-->
+</div>
+
+<section id="cta">
+
+    <header>
+        <h2>Comment ça marche chez  <strong>AlloTabib</strong> ?</h2>
+        <h3>Simple, rapide et facile : en quelques clicks</h3>
+    </header>
+    <div class="center">
+        <div class="col-md-4">
+            
+            <span class="home-search">
+                <img src="../../../Images/search.png" />
+            </span>
+            <h5>
+                Trouvez un praticien
+                proche.
+            </h5>
+            <i class=".glyphicon-chevron-right hidden-xs"></i>
+        </div>
+        <div class="col-md-4">
+            
+            <span class="home-calendar">
+                <img src="../../../Images/reserver-rendez-vous.png" />
+            </span>
+            <h5>
+                Réservez un rendez-vous
+                en ligne.
+            </h5>
+            <i class=".glyphicon-chevron-right hidden-xs"></i>
+        </div>
+        <div class="col-md-4">
+           
+            <span class="home-doctor">
+                <img src="../../../Images/doctor.png" />
+            </span>
+            <h5>
+                Se diriger vers votre docteur,RDV confirmé.
+            </h5>
+        </div>
+    </div>
+   
+    <footer>
+        <div class="clearfix visible-xs-block"></div>
+        <ul class="buttons">
+            <li><a href="#/inscrirepraticien" class="button special">Praticien : Inscrivez vous</a></li>
+            <li><a href="#/inscription" class="button">Patient : Inscrivez vous</a></li>
+        </ul>
+    </footer>
+
+</section>
+
+<div class="container" style="padding-bottom: 5%;">
+    <div class="main_grid" style="text-align: center; ">
+
+        <div class="top_grid" style="box-shadow: 1px 1px 12px #555;">
+            <!-- start top_grid -->
+            <div class="col-md-2">
+                <img src="../../../Images/sendmail.png" alt="Email" style="width: 100px;height: 100px;" />
+            </div>
+            <div class="col-md-8 span1_of_1">
+                <h2>Vous avez une question ? </h2>
+                <h4>Vous pouvez nous contacter à contact@allotabib.net</h4>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--<section id="question" class="black">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center">
+                    <h2>Vous avez une question ? Vous avez besoin d'aide ?</h2>
+                    <p>Vous pouvez nous contacter à contact@allotabib.net</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>-->

@@ -1,0 +1,44 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Mot de passe oublié
+    </h2>
+</section>
+<section style="padding-bottom:5%;" >
+    <div class="margin-mobile"></div>
+    <div class="container container-mot-de-passe-oublie ">
+        <div class="container container-main light-page boxed-grey" style="background-color:white;">
+            <h1 style="text-align:center;font-family: 'Amaranth', sans-serif;">Réinitialiser le mot de passe de votre compte </h1>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="well">
+                        <h5 style="padding-bottom:5%;font-family: 'Amaranth', sans-serif;">C'est très simple.</h5>
+                        <h5 style="padding-bottom:10%;font-family: 'Amaranth', sans-serif;">Entrez l'adresse email associée à votre compte  et nous vous enverrons un lien pour réinitialiser votre mot de passe.</h5>
+                        <form data-remote="true" id="formLoginPatient" name="loginPatientForm" novalidate="novalidate">
+                           
+                            <p class="alert alert-success" data-ng-show="isEmailSent">
+                                <i class="dicon-check" style="font-family: 'Amaranth', sans-serif;">
+                                </i> ✓ Un email vient d'être envoyé.
+                            </p>
+                            <p class="alert alert-danger"data-ng-show="internalerror" >
+                                <i class="dicon-check" style="font-family: 'Amaranth', sans-serif;">
+                                </i> Erreur lors de l'envoi d'email veuillez nous contacter par mail: contact@allotabib.net.
+                            </p>
+                            <input id="kind" name="kind" type="hidden" value="patient">
+                            <div class="row form-row">
+                                <div class="form-group col-sm-12">
+                                    <label class="sr-only" for="email" style="font-family: 'Amaranth', sans-serif;">
+                                        Votre adresse email
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Email" required="" id="loginEmail" name="loginEmail" data-ng-change="loginInputChanged()" data-ng-model="emailmotdepasse">
+
+                                    <label class="error" style="font-family: 'Amaranth', sans-serif;" data-ng-show="errorSentEmail">Aucun compte n'est associé à cette adresse email.</label>
+                                </div>
+                            </div>
+                            <input class="btn btn-alternate btn-cta" data-disable-with="Envoi en cours..." name="commit" type="submit" value="Envoyer" style="font-family: 'Amaranth', sans-serif;" data-ng-click="envoyerMotpasseOublie()">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,668 @@
+﻿/* Custom styles */
+html,
+body {
+    font-family: Arial,sans-serif;
+    color: #000;
+    font-size: 14pt;
+}
+
+/* push the footer to the bottom */
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -130px;
+}
+
+/* Set the fixed height of the footer here */
+#push {
+    height: 350px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (min-width: 1200px) {
+    #footer {
+        height: 105px;
+    }
+
+        #footer .footer-block {
+            height: 70px;
+        }
+}
+/* *********************************** */
+
+div.clear {
+    clear: both;
+}
+
+a {
+    color: #000; /*#00B0F0; */
+    text-decoration: underline;
+}
+
+    a.btn {
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #00B0F0;
+    }
+
+    a.nodecoration {
+        text-decoration: none;
+    }
+
+h1, h2, h3, h4, h5, h6 /*,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a*/ {
+    color: #666;
+}
+
+/* page structure */
+#header {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 2px solid #D5D5D5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(../PIE.htc);
+}
+
+    #header h1 {
+        font-size: 32px;
+        font-weight: normal;
+        line-height: 38px;
+        margin-top: 0;
+        color: #000;
+    }
+
+    #header .header-block {
+        padding: 10px;
+    }
+
+    #header a.btn-link,
+    #header a.btn-link:hover {
+        text-decoration: none;
+    }
+
+#userinfo {
+    color: #666;
+}
+
+    #userinfo span {
+        font-size: 12pt;
+    }
+
+    #userinfo > div {
+        display: block;
+        vertical-align: middle;
+    }
+
+#main-nav {
+    margin-top: 4px;
+}
+
+#sidebar {
+}
+
+#sidebar-inner {
+    padding: 20px 0;
+    height: 100%;
+    min-height: 100%;
+    margin-bottom: 15px;
+    border: 2px solid #D5D5D5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(../PIE.htc);
+}
+
+#sidebar .nav > li > span,
+#sidebar .nav > li > a {
+    display: inline;
+    vertical-align: top;
+    line-height: 24px;
+    padding-top: 3px;
+}
+
+    #sidebar .nav > li > a:hover {
+        background-color: transparent;
+        color: #00B0F0;
+    }
+
+#sidebar .nav-list > li > a {
+    text-decoration: underline;
+}
+
+/* NAVBAR */
+.navbar-inner {
+    border: 2px solid #D5D5D5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(../PIE.htc);
+    background-color: transparent;
+    background-image: none;
+}
+
+.navbar .nav > li > a {
+    position: relative;
+}
+
+    .navbar .nav > li > a > .badge {
+        position: absolute;
+        top: -8px;
+        right: 0;
+        background-color: #00AD4D;
+    }
+
+#content {
+}
+
+/* tabs overrides */
+.nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > li > a {
+    text-decoration: none;
+}
+
+#login-container {
+    max-width: 270px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    padding: 10px 30px;
+    border: 2px solid #D5D5D5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+    #login-container.large {
+        max-width: 370px;
+    }
+
+    #login-container h1 {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: normal;
+        color: #000;
+    }
+
+    #login-container input[type="text"],
+    #login-container input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+    }
+
+#login-actions a {
+    font-size: 10pt;
+}
+
+#footer {
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border: 2px solid #D5D5D5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(../PIE.htc);
+    font-size: 12pt;
+}
+
+    #footer a {
+        line-height: 24px;
+    }
+
+    #footer .footer-block {
+        display: block;
+        /*height: 70px;*/
+        padding: 0 10px;
+    }
+
+        #footer .footer-block.nopadding {
+            padding: 0;
+        }
+
+        #footer .footer-block.separator {
+            border-right: 2px solid #D5D5D5;
+        }
+
+        #footer .footer-block.separator-left {
+            border-left: 2px solid #D5D5D5;
+        }
+
+        #footer .footer-block ul {
+            margin-bottom: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+            #footer .footer-block ul li a {
+                font-size: 9pt;
+                line-height: 16px;
+            }
+
+        #footer .footer-block .accettiamo {
+            border-bottom: 3px solid #CCCCCC;
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+
+.icon-button [class^="icon-"],
+.icon-button [class*=" icon-"] {
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.page-header {
+    border: 0;
+    margin-bottom: 0;
+}
+
+#homelink {
+    padding-left: 0;
+}
+
+#logoutlink {
+    margin-left: 5px;
+}
+
+#toggleHiddenActions.toggle .all {
+    display: none;
+}
+
+#toggleHiddenActions.toggle .enabled {
+    display: inline;
+}
+
+#toggleHiddenActions.toggle.on .all {
+    display: inline;
+}
+
+#toggleHiddenActions.toggle.on .enabled {
+    display: none;
+}
+
+/* Utils
+   ----------------- */
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.show {
+    display: block;
+}
+
+.himage {
+    display: inline;
+    margin-right: 4px;
+}
+
+/* Validation
+   ----------------- */
+#login-container .input-validation-error {
+    background-color: #FBE5B9;
+    background: -moz-linear-gradient(270deg, rgba(240, 217, 173, 0) 71.7%, #F0D9AD 100%) repeat scroll 0 0 #FBE5B9;
+    background: -webkit-gradient(-webkit-gradient(linear,left top,left bottom,color-stop(0.717,rgba(240, 217, 173, 0)),to(#F0D9AD)) #FBE5B9);
+    text-shadow: none;
+    border-radius: 4px;
+    min-width: 0;
+}
+
+#login-container .field-validation-error {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+    color: #F00;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+#login-actions a {
+    font-size: 10pt;
+}
+
+/* Menu Accordion
+   ----------------- */
+
+#menu .accordion-group {
+    margin-bottom: 4px;
+    border: 1px solid #BFBFBF;
+}
+
+#menu .accordion-toggle {
+    background-color: #D9D9D9;
+    color: #000;
+    text-decoration: none;
+}
+
+    #menu .accordion-toggle:hover {
+        text-decoration: none;
+    }
+
+    #menu .accordion-toggle i {
+        margin-right: 4px;
+    }
+
+#menu .accordion-inner h4 {
+}
+
+#menu .accordion-inner p {
+    margin-bottom: 40px;
+    color: #444;
+}
+
+    #menu .accordion-inner p.muted,
+    #menu .accordion-inner h4.muted {
+        color: #AAA;
+    }
+
+/*
+@media (max-width: 767px) {
+   #sidebar {
+      font-size: 12pt;
+   }
+}
+*/
+
+hr {
+    border: 1px solid #D5D5D5;
+}
+
+/* tables
+   **************************************** */
+
+.dropdown-menu a {
+    text-decoration: none;
+}
+
+/* tables
+   **************************************** */
+.table td.currency,
+.table th.currency {
+    text-align: right;
+}
+
+/* BUDDIES SPRITES
+   **************************************** */
+
+.buddy {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    height: 73px;
+    background-image: url('./images/buddies3.png');
+    background-repeat: no-repeat;
+}
+
+    .buddy.default {
+        background-position: 0 -14px;
+    }
+
+    .buddy.red-sad {
+        background-position: -79px -14px;
+    }
+
+    .buddy.red-happy {
+        background-position: -120px -14px;
+    }
+
+    .buddy.green-happy {
+        background-position: -160px -14px;
+    }
+
+    .buddy.green-sad {
+        background-position: -201px -14px;
+    }
+
+    .buddy .amount {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 25px;
+        width: 100%;
+        margin: 0 auto;
+        color: #000000;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+#ricarica .tab-pane > h4 {
+    margin-top: 30px;
+    padding: 5px;
+    background-color: #efefef;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    behavior: url(../PIE.htc);
+}
+
+input.amount {
+    text-align: center;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#ricarica-info {
+    border: solid 1px #ccc;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+    #ricarica-info hr {
+        margin: 10px 0;
+    }
+
+#ricarica-info-header h4 {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#ricarica-buddy-status {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 20px;
+}
+
+#ricarica-add-to-cart {
+    width: 100px;
+}
+
+#movements-list table td {
+    font-size: 11pt;
+}
+
+    #movements-list table td.header {
+        font-size: 12pt;
+        color: #666;
+    }
+
+/* TAB SCPECIFIC FORMATTING
+   **************************************** */
+#config-tab {
+    padding-bottom: 50px;
+}
+
+/* GENERIC
+==================================== */
+
+.rounded-corners {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url(../PIE.htc);
+}
+
+/* ORDER LIST
+==================================== */
+
+.order-list .icon-warning-sign {
+    color: #a90101;
+    cursor: pointer;
+}
+
+.order-list {
+    font-size: 16px;
+}
+
+    .order-list h3 {
+        font-size: 22px;
+        margin-top: 50px;
+        color: #238AB5;
+    }
+
+    .order-list .list-header {
+        font-weight: bold;
+    }
+
+    .order-list .list-separator {
+        border-bottom: dotted 1px #ccc;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .order-list .item {
+    }
+
+        .order-list .item .btn {
+            position: relative;
+            top: -2px;
+            padding: 1px 10px;
+        }
+
+    .order-list .status {
+        font-weight: bold;
+    }
+
+        .order-list .status.active {
+            color: #090;
+        }
+
+        .order-list .status.ceased {
+            color: #999;
+        }
+
+    .order-list .bar {
+        width: 100%;
+    }
+
+    .order-list .used {
+        float: left;
+        background: #238AB5;
+        height: 20px;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .order-list .available {
+        float: left;
+        background: #D3E8F1;
+        height: 20px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+.there-are-warnings .message {
+    color: #A90101;
+}
+
+/* ORDER DETAIL
+==================================== */
+
+.order-detail {
+    font-size: 16px;
+}
+
+    .order-detail h3 {
+        color: #0094C8;
+        margin-top: 40px;
+        border-bottom: dotted 1px #ccc;
+    }
+
+    .order-detail a.explain {
+        color: #0094C8;
+    }
+
+    .order-detail .order-status {
+        /*min-height: 370px;*/
+    }
+
+        .order-detail .order-status .status .show-status {
+            height: 20px;
+            font-size: 25px;
+        }
+
+        .order-detail .order-status .status.active i,
+        .order-detail .order-status .status.paying-auto i,
+        .order-detail .order-status .status.manual-renew i {
+            color: #090;
+        }
+
+        .order-detail .order-status .status.paying {
+            color: #E1962D;
+        }
+
+        .order-detail .order-status .status .warning {
+            color: #fff;
+            background-color: #C53D36;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+            .order-detail .order-status .status .warning a {
+                color: #fff;
+                font-weight: bold;
+            }
+
+    .order-detail .order-actions .row {
+        height: 50px;
+    }
+
+    .order-detail .order-actions select {
+        width: 100%;
+    }
+
+    .order-detail .separator {
+        border-bottom: dotted 1px #ccc;
+        margin-bottom: 6px;
+    }
+
+    .order-detail .item-row {
+        height: 30px;
+    }
+
+    .order-detail .remove-mms {
+        color: #C53D36;
+    }
+
+    .order-detail .add-mms {
+        color: #090;
+    }
+
+/*.transaction-action-btn > .dropdown-menu {
+    left: -420%;
+}*/

@@ -1,0 +1,40 @@
+﻿@model ApplicationLayer.DTO.ProductDTO
+
+@{
+    ViewBag.Title = "DeleteProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteProduct</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ProductDTO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

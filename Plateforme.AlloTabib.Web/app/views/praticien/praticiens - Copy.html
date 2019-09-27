@@ -1,0 +1,64 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif; ">
+        Liste des praticiens
+    </h2>
+</section>
+<section style="padding-bottom:200px;" >
+    <div class="margin-mobile" style="margin-top:15%;"></div>
+    <div class="row row-centered" id="list-of-application-id" style="padding-bottom: 10%; background-color: #fff;">
+        <table data-ng-show="praticiensList.length == 0 || praticiensList==null" class="col-sm-10 table table-striped table-bordered table-condensed">
+            <tbody>
+                <tr class="error">
+                    <td colspan="2">
+                        <div class="text-center">
+                            <h4><strong>Aucun praticien présent ayant les critères ajoutés.</strong></h4>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div data-ng-hide="praticiensList.length == 0 || praticiensList==null" class="col-md-3 col-sm-4 col-xs-12 repeat-animation doc-info-box col-centered" data-ng-repeat="praticienApi in praticiensList | filter:searchApp" style="margin-right:50px;margin-left: 50px;">
+            <div class="panel panel-info width-panel-praticien-m">
+                <!-- Default panel contents -->
+                <div class="panel-heading" style="text-align: center;"><b>Dr {{praticienApi.nomPrenom }}</b></div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <b itemprop="title">{{praticienApi.specialite}}</b>
+                        <img src="../../../Images/cnam.gif" alt="Cnam" style="float: right;" data-ng-show="estConventionne(praticienApi.conventionne)" />
+                        <div style="color: #476481;padding: 5px 0px;" itemprop="address">{{praticienApi.adresse}}<br>{{praticienApi.delegation}}<br />{{praticienApi.gouvernerat}}</div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-info" data-ng-click="prendreRendezVous(praticienApi)" style="position: a; bottom:0px; "><span>Prendre rendez-vous</span></button>
+                </div>
+            </div>
+            <!--<div style="padding: 20px;background: #d5ebf7;border: 1px solid #d5ebf7;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;margin-top: 1em;margin-bottom: 1em;width:100%;height: 10%;">
+            <div class="row">
+                <div class="col-sm-5 col-xs-4 panel-heading" style="background: #d5ebf7">
+                    <b>Dr {{praticienApi.nomPrenom }}</b>
+                </div>
+                <div class="col-sm-7 col-xs-8 panel-body" style="background: #d5ebf7">
+                    <div>
+                        <b itemprop="title">{{praticienApi.specialite}}</b>
+                        <img src="../../../Images/cnam.gif" alt="Cnam" style="float: right;" data-ng-show="estConventionne(praticienApi.conventionne)" />
+                        <div style="color: #476481;padding: 5px 0px;" itemprop="address">{{praticienApi.adresse}}<br>{{praticienApi.delegation}}<br />{{praticienApi.gouvernerat}}</div>
+                    </div>
+                    <div>
+                        <button class="btn btn-info" data-ng-click="prendreRendezVous(praticienApi)" style="position: a; bottom:0px; "><span>Prendre rendez-vous</span></button>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>-->
+        </div>
+
+
+    </div>
+</section>
+
+

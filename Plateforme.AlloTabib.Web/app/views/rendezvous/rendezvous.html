@@ -1,0 +1,38 @@
+﻿<div style="margin-top:7%; ">
+    <link rel="stylesheet" href="../../../Content/rendezvousWizard.css" type="text/css">
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+            <div id="form-container">
+                <div class="text-center no-margin">
+                    <h3 class="no-margin page-title">Finalisez votre rendez-vous en quelques clics</h3>
+                </div>
+                <div class="row">
+                    <div class="page-header text-center no-margin col-md-12 col-sm-3 col-xs-3">
+                        <!-- the links to our nested states using relative paths -->
+                        <!-- add the active class if the state matches our ui-sref -->
+                        <div id="status-buttons" class="text-center">
+                            <a ui-sref-active="active" class="large-display" ui-sref=".identification" ><span>1</span> Identification</a>
+                            <a ui-sref-active="active" class="large-display" ui-sref=".verification"><span>2</span> Informations du RDV</a>
+                            <a ui-sref-active="active" class="large-display" ui-sref=".confirmation"><span>4</span> Confirmation</a>
+
+
+                            <a ui-sref-active="active" class="small-display col-sm-12 col-xs-12" ui-sref=".identification">Identification</a>
+                            <a ui-sref-active="active" class="small-display col-sm-12 col-xs-12" ui-sref=".verification">Informations du RDV</a>
+                            <a ui-sref-active="active" class="small-display col-sm-12 col-xs-12" ui-sref=".confirmation">Confirmation</a>
+
+                        </div>
+                    </div>
+
+                    <!-- use ng-submit to catch the form submission and use our Angular function -->
+                    <form id="rendezvous-form" class="col-md-12 col-sm-9 col-xs-9" ng-submit="processForm()">
+                        <!-- our nested state views will be injected here -->
+                        <div id="form-views" ui-view></div>
+                    </form>
+                   
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+

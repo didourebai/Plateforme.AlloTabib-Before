@@ -1,0 +1,69 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Suivre mes rendez vous : espace patient
+    </h2>
+</section>
+<section style="padding-bottom:5%;" class="section-body">
+    <div class="container" >
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Suivi de vos rendez vous</h3>
+            </div>
+            <div class="panel-body">
+                <blockquote>
+
+                    <p class="rose-color" style="">
+                        <span>
+                            <img src="../../../Images/calendar.png" style="width: 5%;height: 5%;" />
+                        </span>
+
+                        <span>
+                            Vous pouvez afficher vos rendez vous en cours, pour avoir une vision claire sur leurs statuts afin de les suivre.
+
+                        </span>
+                    </p>
+                    <small style="">Equipe <cite title="Source Title" style="">Allo Tabib</cite></small>
+                </blockquote>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Date du rendez vous</th>
+                                <th>Heure du rendez vous</th>
+                                <th>Adresse praticien</th>
+                                <th>Nom et prénom praticien</th>
+                                <th>Spécialité praticien</th>
+                                <th>Spécialité</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="rendezvous in rendezvousList" style="vertical-align: middle;">
+                                <td>{{rendezvous.currentDate}}</td>
+                                <td>{{rendezvous.heureDebut}}</td>
+                                <td>{{rendezvous.praticienAdresse}}</td>
+                                <td>{{rendezvous.praticienNomPrenom}}</td>
+                                <td>{{rendezvous.praticienSpecialite}}</td>
+                                <td>{{rendezvous.statut}}</td>
+                                <!--<td>
+                                    <button class="btn btn-danger" type="submit" data-ng-click="annulerRdv(rendezvous)" data-loading-text="Loading..." id="annulerRdv">
+                                        <span class="glyphicon-log-out glyphicon"></span> Annuler
+                                    </button>
+
+
+                                    {{button}}
+                                </td>-->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>

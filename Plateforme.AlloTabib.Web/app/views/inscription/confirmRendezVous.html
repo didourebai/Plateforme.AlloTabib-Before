@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title center">Confirmation du rendez vous</h3>
+</div>
+<div class="modal-body">
+    <h5>
+        Voulez vous confirmer votre rendez vous le : {{dateRendezVous}} à {{horaireRendezVous}} chez le {{specialiteRdv}} : {{nomPrenomMe}} ?
+       
+    </h5>
+    <h5>
+        Si vous valider votre rendez vous ne pouvez pas l'annuler qu'en le contactant par téléphone.
+    </h5>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" data-ng-click="confirmRdv()">Confirmer Rendez vous</button>
+    <button class="btn btn-warning" ng-click="cancelAndLeave()">Fermer</button>
+</div>

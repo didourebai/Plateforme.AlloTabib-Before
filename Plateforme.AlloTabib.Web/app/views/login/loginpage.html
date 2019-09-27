@@ -1,0 +1,75 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Connexion à l'espace personnel d'un patient
+    </h2>
+</section>
+<section class ="container boxed-grey" style="padding-bottom:5%; margin-top:5%;" class="section-body">
+    <div style="background-color: #ebf1fa; border-radius: 10px;">
+        <br />
+        <h2>Connexion à l'espace personnel</h2>
+
+        <div class="form-group">
+            <div style="color: #134263; text-align: center;">Identification à votre espace.</div>
+            <div class="rose-color">
+                <span class="glyphicon glyphicon-info-sign"></span> Réservé aux patients.
+            </div>
+            <br />
+            <form id="formLoginPatient" name="loginPatientForm" style="margin-left: 20%; margin-right: 20%;">
+
+                <div class="{{loadInputClassForAdd(loginPatientForm.loginEmail.$valid)}} ">
+					 <div class="input-group">
+                    <div class="input-group-addon">@</div>
+                    <input type="text" class="form-control" placeholder="Email" required="" id="loginEmail" name="loginEmail" data-ng-change="loginInputChanged()" data-ng-model="loginPatient.email">
+                </div>
+                <div class="alert alert-danger" data-ng-show="loginPatientForm.loginEmail.$invalid && loginPatientForm.loginEmail.$dirty && !hideLoginValidationError">
+                    <small class="error" data-ng-show="loginPatientForm.loginEmail.$error.required">Veuillez introduire votre adresse électronique.</small>
+                    <small class="error" data-ng-show="loginPatientForm.loginEmail.$error.email">Le format de l'email n'est pas correcte.</small>
+                </div>
+        </div>
+        <br />
+        <div>
+            <div class="input-group">
+                <div class="input-group-addon" style="max-width: 47px;">*</div>
+                <input type="password" class="form-control" placeholder="Mot de passe" required="" id="loginPassword" name="loginPassword" data-ng-change="loginInputChanged()" data-ng-model="loginPatient.password">
+            </div>
+
+            <div class="alert alert-danger" data-ng-show="loginPatientForm.loginPassword.$invalid && loginPatientForm.loginPassword.$dirty && !hideLoginValidationError">
+                <small class="error" data-ng-show="loginPatientForm.loginPassword.$error.required">Veuillez introduire votre mot de passe.</small>
+            </div>
+        </div>
+        <br /><br />
+        <button class="btn btn-lg btn-primary btn-block" type="submit" data-ng-click="loginPatient()" data-loading-text="Loading..." id="loginPatientBtn"
+                data-ng-disabled="loginPatientForm.loginEmail.$invalid|| loginPatientForm.loginPassword.$invalid">
+            <span class="glyphicon-log-out glyphicon"></span> Connectez vous
+        </button>
+
+        <br /><br />
+        <div class="registration">
+            <div class="col-md-8">
+                <span> Vous n'avez pas un compte ?</span>
+            </div>
+            <div class="col-md-4">
+                <a href="#/inscription" type="button" style="width: 130px;" class="btn btn-link" id="link-inscription">
+                    Cliquez-ici
+                </a>
+            </div>
+        </div>
+        <hr style="background-color: #2c3e50;" />
+        <div class="registration">
+            <div class="col-md-8">
+                Vous êtes un praticien ?
+            </div>
+            <div class="col-md-4">
+                <a href="#" data-ng-href="http://espace.tabib.allotabib.net/index.html" target="_blanc" class="btn btn-link">Identifiez-vous</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+                <div>
+                    <a href="#/mot-de-passe-oublie" class="btn btn-danger">Mot de passe oublié ?</a>
+                </div>
+        </form>
+
+    </div>
+
+    </div>
+</section>

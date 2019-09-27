@@ -1,0 +1,270 @@
+﻿
+
+input.ng-invalid.ng-dirty {
+    border-color: #A94442;
+    -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+    input.ng-invalid.ng-dirty:focus {
+        border-color: #843534;
+        -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 6px #CE8483;
+        -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 6px #CE8483;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 6px #CE8483;
+    }
+
+#prettyjson {
+    padding: 0 !important;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+}
+
+
+.small-btn-right-container {
+    padding-right: 35px;
+}
+
+#status-buttons {
+}
+
+    #status-buttons a {
+        display: inline-block;
+        font-size: 16px;
+        margin-right: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #666;
+    }
+
+        #status-buttons a:hover, #status-buttons a:focus {
+            text-decoration: none;
+        }
+
+    /* we will style the span as the circled number */
+    #status-buttons span {
+        border: 1px solid #049ddc;
+        color: #049ddc;
+        display: block;
+        height: 32px;
+        margin: 0px auto 10px;
+        padding-top: 5px;
+        width: 32px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    #status-buttons a.active {
+        /*font-weight:bold;*/
+        border-bottom: 2px solid #049ddc;
+        text-shadow: 1px 1px 2px #929292;
+    }
+
+        /* active buttons turn light green-blue*/
+        #status-buttons a.active span {
+            background: #049ddc;
+            color: #fff;
+        }
+
+
+#signup-form {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    padding: 30px;
+}
+
+#form-views {
+    width: auto;
+}
+
+    /* basic styling for entering and leaving */
+    /* left and right added to ensure full width */
+    #form-views.ng-enter,
+    #form-views.ng-leave {
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        -moz-transition: 0.5s all ease;
+        -webkit-transition: 0.5s all ease;
+        -o-transition: 0.5s all ease;
+        transition: 0.5s all ease;
+    }
+
+    /* enter animation */
+    #form-views.ng-enter {
+        -webkit-animation: slideInRight 0.5s both ease;
+        -moz-animation: slideInRight 0.5s both ease;
+        -o-animation: slideInRight 0.5s both ease;
+        animation: slideInRight 0.5s both ease;
+    }
+
+    /* leave animation */
+    #form-views.ng-leave {
+        -webkit-animation: slideOutLeft 0.5s both ease;
+        -moz-animation: slideOutLeft 0.5s both ease;
+        -o-animation: slideOutLeft 0.5s both ease;
+        animation: slideOutLeft 0.5s both ease;
+    }
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@-moz-keyframes slideOutLeft {
+    to {
+        -moz-transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from {
+        transform: translateX(200%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        -moz-transform: translateX(200%);
+    }
+
+    to {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(200%);
+    }
+
+    to {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@media (max-width: 767px) {
+    /*xs*/
+
+    #rendezvous-form{
+        border-left:1px solid #eee;
+    }
+
+    #form-container div h2 {
+        border-bottom: 1px solid #eee;
+    }
+
+    #form-container div.row div.page-header {
+        z-index: 101;
+        background-color: rgba(255, 255, 255, 0.70);
+        min-height: 600px;
+        border-bottom: none;
+    }
+
+    #form-container div.row form {
+        z-index: 100;
+    }
+
+    #status-buttons {
+        margin-top: 15px;
+    }
+
+        #status-buttons a {
+            margin: 0 0 30px 0;
+            float: right;
+            font-size: 14px;
+            text-align: right;
+            font-size:8px;
+        }
+
+            #status-buttons a.large-display {
+                display: none !important;
+            }
+
+            #status-buttons a.active {
+                border-right: 2px solid #049ddc;
+                border-bottom: none;
+                font-weight: bold;
+                font-size:8px;
+            }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /*sm*/
+
+    #rendezvous-form{
+        border-left:1px solid #EEEEEE;
+    }
+
+    #form-container div h2 {
+        border-bottom: 1px solid #eee;
+    }
+
+    #form-container div.row div.page-header {
+        z-index: 101;
+        background-color: rgba(255, 255, 255, 0.80);
+        min-height: 600px;
+        border-bottom: none;
+    }
+
+    #form-container div.row form {
+        z-index: 100;
+    }
+
+    #status-buttons {
+        margin-top: 15px;
+    }
+
+        #status-buttons a {
+            margin: 0 0 30px 0;
+            float: right;
+            text-align: right;
+        }
+
+            #status-buttons a.large-display {
+                display: none !important;
+            }
+
+            #status-buttons a.active {
+                border-right: 2px solid #049ddc;
+                border-bottom: none;
+                font-weight: bold;
+            }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /*md*/
+
+    #status-buttons a.small-display {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    /*lg*/
+
+    #status-buttons a.small-display {
+        display: none !important;
+    }
+}
+

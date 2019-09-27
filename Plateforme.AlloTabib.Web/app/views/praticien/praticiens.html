@@ -1,0 +1,116 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif; ">
+        Liste des praticiens
+    </h2>
+</section>
+<section style="padding-bottom:200px;" >
+    <div class="margin-mobile" style="margin-top:25%;"></div>
+    <div class="row row-centered" id="list-of-application-id" style="padding-bottom: 10%; background-color: #fff;">
+        <table data-ng-show="praticiensList.length == 0 && noPraticien == true" class="col-sm-10 table table-striped table-bordered table-condensed">
+            <tbody>
+                <tr class="error">
+                    <td colspan="2">
+                        <div class="text-center">
+                            <h4><strong>Aucun praticien présent ayant les critères ajoutés.</strong></h4>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="margin-mobile" style="margin-top:10%;"></div>
+        <div class="container">
+            <div data-ng-hide="praticiensList.length == 0 || praticiensList==null" class="col-md-12 col-lg-12" style="margin-top:2%;">
+                <div style=" margin-left: auto; margin-right: auto;"><b>Votre recherche a donné : {{total}} praticiens</b></div>
+                <br />
+                <div id="map" style=" margin-left: auto; margin-right: auto;" class="boxed-grey"></div>
+                <br />
+                <div infinite-scroll="next()" infinite-scroll-distance="0">
+                    <accordion close-others="true">
+                        <accordion-group class="panel-default" data-ng-repeat="praticienApi in praticiensList | filter:searchApp" is-open="praticienApi.accordionIsOpen">
+                            <accordion-heading id="listItem_{{praticienApi.cin}}" class="panel-heading">
+                                <div class="row cursor-pointer" data-ng-click="selectPraticien(praticienApi)">
+                                    <div class="col-md-3 col-sm-3">
+                                        <span class="allotabib-property-name space-icon-lg">Dr.</span>
+                                        <span class="allotabib-property-value">{{praticienApi.nomPrenom}}</span>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <span class="allotabib-property-name space-icon-lg">Spécialité:</span>
+                                        <span class="allotabib-property-value">{{praticienApi.specialite}}</span>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4">
+                                        <span class="allotabib-property-name space-icon-lg">Adresse:</span>
+                                        <span class="allotabib-property-value">{{praticienApi.delegation}} - {{praticienApi.gouvernerat}}</span>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1">
+                                        <span class="fa fa-chevron-right fa-lg pull-right" data-ng-hide="praticienApi.accordionIsOpen"></span>
+                                        <span class="fa fa-chevron-down fa-lg pull-right" data-ng-show="praticienApi.accordionIsOpen"></span>
+                                    </div>
+                                </div>
+                            </accordion-heading>
+                          
+                            <div class="spinner" data-ng-hide="isLoaded">
+                                <div class="rect1"></div>
+                                <div class="rect2"></div>
+                                <div class="rect3"></div>
+                                <div class="rect4"></div>
+                                <div class="rect5"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12" data-ng-show="isLoaded">
+                                <div class="col-md-4 col-lg-4">
+                                    <div class="row boxed-grey">
+                                        <div class="col-sm-4 col-xs-3">
+                                            <img alt="Cabinet Médical" style="vertical-align:middle;margin-top:10%;" class="img img-responsive img-thumbnail" itemprop="image" src="http://res.cloudinary.com/allotabib/image/upload/v1434559690/image-doctor_w2oi5x.jpg">
+                                            
+                                        </div>
+                                        <div class="col-sm-8 col-xs-9">
+                                           
+                                                <button class="btn btn-link"  data-ng-click="praticienInfor(praticienApi.email,praticienApi.nomPrenom)">
+                                                    <b>Dr {{praticienApi.nomPrenom}}</b>
+                                                </button>
+
+                                            <b itemprop="title">{{praticienApi.specialite}} </b>
+                                           
+                                            <div  class="address" itemprop="address">{{praticienApi.adresse}}<br>{{praticienApi.delegation}} - {{praticienApi.gouvernerat}}</div>
+                                         
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-8">
+                                   
+                                    <div class="row boxed-grey" style="margin-left: 2%; margin-right: 2%; vertical-align: middle; margin-top: 5%;">
+                                        <div class="spinner" data-ng-hide="isLoaded2" style="margin-top: 30px; margin-bottom: 30px;">
+                                            <div class="rect1"></div>
+                                            <div class="rect2"></div>
+                                            <div class="rect3"></div>
+                                            <div class="rect4"></div>
+                                            <div class="rect5"></div>
+                                        </div>
+                                        
+                                        <div data-ng-show="isLoaded2">
+                                            Premier rendez vous disponible
+                                        </div>
+                                        <div data-ng-show="isLoaded2">
+                                            {{calendarPraticienByDay.jourPremier}} le {{calendarPraticienByDay.datePremiere}} à <b>{{calendarPraticienByDay.heurePremiere}}</b>
+                                        </div>
+                                        <div data-ng-show="isLoaded2">
+                                            <span class="btn btn-alternate focus-nearby-agenda hidden-xs" data-ng-click="prendreRendezVous(praticienApi)">Prendre rendez-vous</span>
+                                        </div>
+                                    </div>
+                                    
+                                    </div>
+                                   
+                            </div>
+                            
+                        </accordion-group>
+                    </accordion>
+                </div>
+            </div>
+        </div>
+        
+
+
+    </div>
+</section>
+
+

@@ -1,0 +1,117 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Conditions générales d'utilisation de AlloTabib
+    </h2>
+</section>
+<section style="padding-bottom:5%;" class="section-body">
+    <div class="row" id="contact-form">
+
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="boxed-grey">
+
+                <div>
+                    <div class="col-md-9">
+                        <blockquote>
+                            <p class="rose-color"><span class="glyphicon glyphicon-info-sign" style="font-size:14px;"></span> Veuillez postuler tous vos remarques, on vous contactera.</p>
+                            <small>Equipe <cite title="Source Title">Allo Tabib</cite></small>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-3" style="float: right;text-align: right; ">
+                        <img src="../../../Images/contact.jpg" alt="contact" style="width: 100%; height: 100%;" />
+                    </div>
+                </div>
+                <form id="contact-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    Nom
+                                </label>
+                                <input type="text" class="form-control" id="name" placeholder="Entrer votre nom" required="required" data-ng-model="newContact.nom" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    Adresse Email
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" data-ng-model="newContact.email" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">
+                                    Sujet
+                                </label>
+                                <select id="subject" name="sujet" class="form-control" required="required" data-ng-model="newContact.sujet">
+                                    <option value="na" selected="">Choisir:</option>
+                                    <option value="service">Contacter service commercial</option>
+                                    <option value="suggestions">Suggestions</option>
+                                    <option value="product">Aide technique</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">
+                                    Message
+                                </label>
+                                <textarea name="message" id="Textarea1" class="form-control" rows="9" cols="25" required="required" placeholder="Message" data-ng-model="newContact.message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-skin pull-right" id="btnContactUs" data-ng-click="postEmail();">
+                                Envoyer votre message
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="errorMessage" class="alert alert-danger alert-dismissable" style="height: auto;" data-ng-show="addHasErrors">
+                    <button id="Button1" type="button" class="close" data-ng-click="closePanels()">&times;</button>
+                    <span class="glyphicon glyphicon-ok space-right"></span>
+                    {{errorMessageTxt}}
+                </div>
+
+            </div>
+
+            <div class="widget-contact row">
+                <!--<div class="col-lg-6">
+                    <address>
+                        <strong>HRT</strong><br>
+                                                      contact@allotabib.net<br>
+                                                                                                  Tunis-Tunisie<br>
+                                                                                                                         <abbr title="Phone">P:</abbr>
+                    </address>
+                </div>-->
+
+                <div class="col-lg-6">
+                    <address>
+                        <strong>Email</strong><br>
+                        <a href="mailto:#">contact@allotabib.net</a><br />
+                    </address>
+
+                </div>
+
+            </div>
+            <div>
+                <div id="fb-root"></div>
+                <script>
+
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=413060972195778&version=v2.0";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
+            </div>
+            Commentaires sur facebook :
+            <div class="fb-comments" data-href="http://allotabib.net" data-numposts="5" data-colorscheme="light"></div>
+        </div>
+
+
+    </div>
+</section>

@@ -1,0 +1,198 @@
+﻿<section style="background-color: #4F92BC;margin-top:7%;max-height:100px;height:90px;" class="bloc-web">
+    <h2 style=" color: white;padding-top:1.5%; margin-left: -15px; text-align: center; font-family: 'Amaranth', sans-serif;">
+        Réservez votre rendez-vous en ligne : étape 1
+    </h2>
+</section>
+<section>
+    <div style="background-color: gainsboro !important;">
+        <div class="margin-mobile"></div>
+        <div class="container " style=" background-color: white;">
+            <div>
+                <div class="col-md-4">
+                    <div class="form-group" style="height: 300px;">
+                        <div style="font-weight: bolder;margin-top: 2em;">Trouver un {{ PraticienSelectedToRdv.specialite}} à {{ PraticienSelectedToRdv.gouvernerat}}</div>
+                        <br />
+                        <form>
+
+                            <input type="text" class="form-control" id="nomdocteur" placeholder="Nom du docteur" data-ng-model="search.nomPrenom" style="border-color: #a5c7df; color: #134263; margin-bottom: 1em;" />
+
+                            <input list="specialiteLst" class="form-control" type="text" placeholder="Spécialité" id="specialite" name="specialite" style="border-color: #a5c7df; color: #134263" data-ng-model="search.specialite" />
+                            <datalist id="specialiteLst">
+                                <option data-ng-repeat="specialite in specialites">{{specialite}}</option>
+                            </datalist>
+
+                            <input list="gouverneratLst" class="form-control" type="text" placeholder="Gouvernerat" id="gouvernerat" name="gouvernerat" data-ng-model="search.gouvernerat" required="" data-ng-maxlength="25" style="border-color: #a5c7df; color: #134263; margin-bottom: 1em;margin-top: 1em;" />
+                            <datalist id="gouverneratLst">
+                                <option data-ng-repeat="gouvernerat in gouvernerats">{{gouvernerat}}</option>
+                            </datalist>
+
+                            <!--<div style="color: #f39c12;margin-top: 0.4em;"> Vous pouvez effectuer une recherche sur le nom du docteur, sa spécialité et sa localité.</div>-->
+                            <div> <button class="btn btn-warning" style="margin-top: 1em;width: 350px;" data-ng-click="searchPraticien()"> TROUVER UN PRATICIEN</button></div>
+
+                        </form>
+
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                    <div style="width: 40em; height: 20em;margin-top: 5%;" id="googleMap"></div>
+                </div>
+
+            </div>
+
+            <!-- Cette partie est réservé pour mettre une adresse dans google maps à ajouter au future -->
+
+
+        </div>
+        <div class="container" style="background-color: white;color: #E8C447;padding: 5px 0px;">
+            <!-- <div class="col-md-4" style="text-align: right;"><img src="../../../Images/calendar.ico" style="width: 4em;height: 4em;" alt="Calendrier"/></div>-->
+            <div>
+                <div class="col-md-3">
+
+                    <img src="../../../Images/calendar.ico" style="width: 4em;height: 4em; float: right;" alt="Calendrier" />
+
+                </div>
+                <div class="col-md-9">
+                    <h3 style="text-shadow: 0 0 3px hotpink;float: left;" class="h3 hidden-xs">Prenez RDV en ligne en cliquant sur un horaire du calendrier</h3>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container" style="border-top: 1px solid; border-bottom: 1px solid;border-color: gainsboro;background-color: white;">
+            <div>
+                <div class="col-md-4">
+                    <h4 class="lead  alert alert-info" style="text-align: center;border-radius: 20px;background: #88b7d5;border-color:#88b7d5;"><span style=" margin-top: 15px;">Choisir un docteur</span></h4>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="lead  alert alert-info" style="text-align: center;border-radius: 20px; background: #88b7d5;border-color:#88b7d5; ">Prendre un rendez vous</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="border-top: 1px solid; border-bottom: 1px solid; border-color: gainsboro; background-color: white;padding-bottom:1%;">
+
+            <div>
+                <div class="col-md-4">
+
+                    <div style="padding: 20px;background: #d5ebf7;border: 1px solid #d5ebf7;border-radius: 10px;-moz-border-radius: 10px;-webkit-border-radius: 10px;margin-top: 1em;margin-bottom: 1em;">
+                        <div class="row">
+                            <div class="col-sm-5 col-xs-4">
+                                <a href="#">
+                                    <img alt="Dr Prénom Nom, Dentiste à Tunis" class="img-responsive" itemprop="image" src="../../../Images/contact.png"> <!--class="img-responsive img-thumbnail"-->
+                                </a>
+                            </div>
+                            <div class="col-sm-7 col-xs-8">
+                                <div>
+                                    <button class="btn btn-link" data-trigger="hover" data-placement="top" data-toggle="popover" data-title='Description détaillée' data-container="body" data-html="true" type="button" data-ng-click="praticienInfor(PraticienSelectedToRdv.email,PraticienSelectedToRdv.nomPrenom)">
+                                        <b>Dr {{PraticienSelectedToRdv.nomPrenom}}</b>
+                                    </button>
+                                    <div id="popover-content-doctor" class="hide" style=" text-align: justify;text-justify: inter-word;">
+                                        <div class="col-md-10">
+                                            <div>Ces informations peuvent vous aider à avoir une idée sur le praticien si vous le connaissez pas.</div>
+                                            <div data-ng-show="PraticienSelectedToRdv.cursus !=''"> <b>Cursus : </b> {{PraticienSelectedToRdv.cursus}}</div>
+                                            <div data-ng-show="PraticienSelectedToRdv.diplomes!=''"><b>Diplôme : </b> {{PraticienSelectedToRdv.diplomes}}</div>
+                                            <div data-ng-show="PraticienSelectedToRdv.email!=''"><b>Email : </b>Email : {{PraticienSelectedToRdv.email}}</div>
+                                            <div data-ng-show="PraticienSelectedToRdv.telephone"><b>Téléphone : </b> {{PraticienSelectedToRdv.telephone}}</div>
+                                            <div data-ng-show=" PraticienSelectedToRdv.informationsPratique!=''"><b>Informations pratiques : </b> {{PraticienSelectedToRdv.informationsPratique}}</div>
+                                            <div data-ng-show="PraticienSelectedToRdv.moyensPaiement!=''"><b>Moyen de paiement : </b> {{PraticienSelectedToRdv.moyensPaiement}}</div>
+                                            <div data-ng-show="praticienApi.parcoursHospitalier!=''"><b>Parcours hôspitalier : </b> {{praticienApi.parcoursHospitalier}}</div>
+                                            <div data-ng-show="praticienApi.languesParles!=''"><b>Langages parlés :</b> {{praticienApi.languesParles}}</div>
+
+
+                                            <br />
+                                        </div>
+                                        <div class="col-md-2" data-ng-show="estConventionne">
+                                            <img src="../../../Images/cnam.gif" alt="Cnam" style="float: right;" />
+                                        </div>
+
+                                    </div>
+                                    <style type="text/css">
+                                        .popover {
+                                            max-width: 600px;
+                                            max-height: 300px;
+                                        }
+                                    </style>
+                                    <script>
+
+                                        $("[data-toggle=popover]").popover({
+                                            html: true,
+                                            content: function () {
+                                                return $('#popover-content-doctor').html();
+                                            }
+                                        });
+                                    </script>
+                                </div>
+
+                                <b itemprop="title">{{PraticienSelectedToRdv.specialite}}   </b>
+                                <img src="../../../Images/cnam.gif" alt="Cnam" style="float: right;" />
+                                <div style="color: #476481;padding: 5px 0px;" itemprop="address">{{PraticienSelectedToRdv.adresse}}<br />{{PraticienSelectedToRdv.delegation}}<br />{{PraticienSelectedToRdv.gouvernerat}}</div>
+                                <div>Téléphone : {{PraticienSelectedToRdv.telephone}}</div>
+
+
+
+                            </div>
+                            <div style="text-align: center;">Prix de consultation : {{PraticienSelectedToRdv.prixConsultation}}</div>
+                        </div>
+
+                    </div>
+                    <div style="width: 50%;">
+                        <div id="fb-root"></div>
+                        <script>
+                            (function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=413060972195778&version=v2.0";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));
+                        </script>
+
+                        <!--<div class="fb-like" data-href="http://allotabib.net/index.html#/rendezvous" data-layout="standard" data-action="like" data-show-faces="true" data-share="false">
+                        </div>-->
+                    </div>
+
+                </div>
+
+                <div class="col-md-8" style="padding-top: 10px;padding-bottom: 10%;">
+                    <div style="background: #F4F7FB; ">
+                        <table style="background: #F4F7FB; ">
+                            <tr>
+                                <td>
+                                    <!--arrowLeftRdvNotActive-->
+                                    <i class="glyphicon glyphicon-circle-arrow-left" style="color: #3498db; font-size: 1.4em; cursor: pointer; margin-left: 0.1em; " data-ng-click="previousWeek()"></i>
+                                </td>
+                                <td data-ng-repeat="heureDispoCalendrier in heuresDispoCalendrier">
+                                    <table data-ng-class="loadClasstableHeures(heureDispoCalendrier)">
+                                        <tr>
+                                            <td>
+                                                <div data-ng-class="loadClasstableJourNonActive(heureDispoCalendrier)">
+                                                    <b>{{heureDispoCalendrier.jour}}</b> <br />{{heureDispoCalendrier.dateCourante | shortDate}}<br />
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr data-ng-repeat="heureCal in heureDispoCalendrier.heureCalendrier" data-ng-class="loadClassTdActiveHeure(heureDispoCalendrier)" style="height: 100%;">
+                                            <td><button class="btn btn-link tdActiveHeure" data-ng-click="demandeConfirmeRdv(heureCal,heureDispoCalendrier.dateCourante,heureDispoCalendrier.jour, PraticienSelectedToRdv)" style="font-size: 12px;">{{heureCal}}</button></td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td>
+                                    <!--arrowRightRdvActive-->
+                                    <i class="glyphicon glyphicon-circle-arrow-right" style="color: #3498db; font-size: 1.4em; cursor: pointer;" data-ng-click="nextWeek()"></i>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="padding-mobile"></div>
+    </div>
+
+</section>
