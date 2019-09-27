@@ -1,0 +1,51 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top navbar-style" role="navigation" data-ng-controller="navigationController" style="background-color: #0596de; height: 60px;" data-ng-hide="!isAuth">
+    <div id="navbarhide">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header navbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">AlloTabib navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="" href="#/calendrier">
+                <img src="../../../Images/doctor-dashboard.jpg" class="img-circle" />
+                <b class="bienvenueClass">Bienvenue Dr {{nomPrenom}}</b>
+            </a>
+
+            <!--<a data-ng-class="{'active':isActive('/home')}" class="navbar-brand col-md-12" href="#/home">
+               <img src="../../../Images/doctor-dashboard.jpg" class="img-circle col-md-6"/>
+              <h4 class="col-md-6"><b>Bienvenue Dr {{nomPrenom}}</b></h4></a>-->
+        </div>
+
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left sizeTexte">
+
+            <li id="Li2" data-ng-class="{'active':isActive('/calendrier')}">
+                <a data-original-title=" Espace AlloTabib." class="active " href="#/calendrier"> <i class="fa fa-calendar"></i> Espace AlloTabib</a>
+            </li>
+            <li id="Li3" data-ng-class="{'active':isActive('/mespatients')}">
+                <a data-original-title="Fiches patients." href="#/mespatients"><i class="fa fa-file-archive-o"></i> Fiches patients</a>
+            </li>
+
+            <li data-ng-class="{'active':isActive('/moncompte')}">
+                <a data-original-title="Mon compte." href="#/moncompte"><i class="fa fa-user-md"></i> Mon compte</a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 20px;">
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-user"></i>  {{userName}} <b class="caret"></b></a>
+                <ul class="dropdown-menu navbar-nav-ul">
+                    <li class="btn btn-info"><a data-ng-click="logout()" href="#/" data-ng-controller="loginController"><span class="fa fa-sign-out icon-space"></span> Déconnexion</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+    <!-- /.container -->
+</nav>

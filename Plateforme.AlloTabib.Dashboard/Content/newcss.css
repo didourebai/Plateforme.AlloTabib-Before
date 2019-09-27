@@ -1,0 +1,257 @@
+﻿.title
+{
+	font-weight: bold;
+}
+
+label
+{
+	margin-bottom: 0px;
+}
+
+.form-search-css
+{
+	float: left;
+	margin-right: 10px;
+}
+
+.clear
+{
+	clear: both;
+}
+
+body
+{
+	font-size: 12pt;
+}
+
+.detail
+{
+	margin-bottom: 5px;
+}
+
+.button-detail
+{
+	margin-bottom: 10px;
+}
+
+.title-color
+{
+	color: #238AB5;
+}
+
+.coupon
+{
+	text-decoration: line-through;
+}
+
+.float-left
+{
+	float: left;
+	margin-right:10px;
+}
+
+.clear
+{
+	clear: both;
+}
+
+.separator
+{
+	margin-bottom: 10px;
+}
+
+.popbase + popdata
+{
+	max-width: 900px;
+	width: auto;
+}
+
+.menu-margin-top
+{
+	margin-top: 10px;
+}
+
+h3.customer-name
+{
+	font-size:22px;
+	margin-top:0;
+}
+
+.search-string-width
+{
+	width: 100%;
+}
+
+i
+{
+	margin-right: 10px;
+}
+
+.colored-query-string
+{
+	background-color: yellow;
+}
+
+.popover
+{
+	max-width: 900px;
+	width: auto;
+}
+
+.selected
+{
+	background-color: #fafafa;
+}
+
+.margin-quota
+{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.margin-bottom-row
+{
+	margin-bottom: 5px;
+}
+
+.align-right
+{
+	text-align: right;
+}
+
+.login-margin-bottom
+{
+	margin-bottom: 30px;
+}
+
+#container-log-in
+{
+	width: 350px;
+	margin: 0 auto;
+}
+
+.row-color-eee
+{
+	background-color: #eee;
+}
+
+.btn.right-align
+{
+	text-align: right;
+}
+
+.marginbottom50 {
+    margin-bottom: 50px;
+}
+
+.validation-message {
+    display: none;
+}
+
+.validation-message.field-validation-error {
+    background: url("images/bg-invalid-field.png") no-repeat scroll center bottom transparent;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+    height: 16px;
+    line-height: 14px;
+    padding: 0 10px 2px;
+    position: absolute;
+    left: -10px;
+    top: -18px;
+    display:block;
+}
+
+.message-class {
+    position: relative;
+}
+
+.margin-bottom-20
+{
+    margin-bottom: 20px;
+}
+
+.display-no
+{
+    display:none;
+}
+
+.font-weight-30 {
+    font-size: 30px;
+}
+
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.font-size-20
+{
+    font-size: 20px;
+}
+
+.border-dotted {
+    border-right: dotted 1px #ccc;
+}
+
+#col1 {
+    position: relative;
+}
+
+.divider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    min-height: 100%;
+    border-left: dotted 1px #ccc;
+    width: 0;
+}
+
+.margin-bottom-10
+{
+    margin-bottom: 10px;
+}
+
+.order-details h3
+{
+   color: #0094C8;
+   margin-bottom:20px;
+}
+
+.divider-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-height: 100%;
+    border-left: dotted 1px #ccc;
+    width: 0;
+}
+
+.col1-class {
+    height: 350px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+TD.padding {
+    padding: 10px 20px 10px 20px;
+}
+
+.margin-right-18 {
+    margin-right: 18px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}

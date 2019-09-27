@@ -1,0 +1,243 @@
+﻿<script type="text/javascript" src="../Scripts/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="../Scripts/jquery.final-countdown.js"></script>
+<script>
+    //For counter
+    var start = Math.round(new Date().getTime() / 1000);
+    var d = new Date(2014, 12, 1);
+    var end = Math.round(d.getTime() / 1000);
+
+    $('.product-showcase').backstretch([
+                    "Images/Abstract_Fire_Background_1.jpg"
+                    , "Images/background1.jpg"
+                    , "Images/background2.jpg"
+    ], { duration: 3000, fade: 750 });
+
+    $('.countdown').final_countdown({
+        'start': start,
+        'end': end,
+        'now': start
+    });
+</script>
+
+
+<div class="product-showcase">
+    <div class="product-showcase-pattern">
+        <div class="container">
+            <div class="product-background" style="padding-top:150px;">
+                <div class="row">
+
+                    <div class="countdown countdown-container container">
+                        <div class="clock row">
+                            <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
+                                <div class="wrap">
+                                    <div class="inner">
+                                        <div id="canvas-days" class="clock-canvas"></div>
+                                        <div class="text">
+                                            <p class="val">0</p>
+                                            <p class="type-days type-time">JOURS</p>
+                                        </div><!-- /.text -->
+                                    </div><!-- /.inner -->
+                                </div><!-- /.wrap -->
+                            </div><!-- /.clock-item -->
+                            <div class="clock-item clock-hours countdown-time-value col-sm-6 col-md-3">
+                                <div class="wrap">
+                                    <div class="inner">
+                                        <div id="canvas-hours" class="clock-canvas"></div>
+                                        <div class="text">
+                                            <p class="val">0</p>
+                                            <p class="type-hours type-time">HEURES</p>
+                                        </div><!-- /.text -->
+                                    </div><!-- /.inner -->
+                                </div><!-- /.wrap -->
+                            </div><!-- /.clock-item -->
+                            <div class="clock-item clock-minutes countdown-time-value col-sm-6 col-md-3">
+                                <div class="wrap">
+                                    <div class="inner">
+                                        <div id="canvas-minutes" class="clock-canvas"></div>
+                                        <div class="text">
+                                            <p class="val">0</p>
+                                            <p class="type-minutes type-time">MINUTES</p>
+                                        </div><!-- /.text -->
+                                    </div><!-- /.inner -->
+                                </div><!-- /.wrap -->
+                            </div><!-- /.clock-item -->
+                            <div class="clock-item clock-seconds countdown-time-value col-sm-6 col-md-3">
+                                <div class="wrap">
+                                    <div class="inner">
+                                        <div id="canvas-seconds" class="clock-canvas"></div>
+                                        <div class="text">
+                                            <p class="val">0</p>
+                                            <p class="type-seconds type-time">SECONDES</p>
+                                        </div><!-- /.text -->
+                                    </div><!-- /.inner -->
+                                </div><!-- /.wrap -->
+                            </div><!-- /.clock-item -->
+                        </div><!-- /.clock -->
+                    </div><!-- /.countdown-wrapper -->
+                    <div class="span6">
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row navbar-fixed-top actions-and-search-row">
+    <!-- search input -->
+    <div class="container actions-and-search-container">
+        <div class="input-group pull-right col-md-6 col-sm-6 col-xs-6 ">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button id="ResetSearchIpInputText" data-original-title="" type="button" data-ng-click="showAllClients()" class="btn btn-primary"><span class="glyphicon glyphicon-repeat"></span></button>
+                </span>
+                <input type="text" placeholder='Rechercher un praticien par son nom ou sa spécialité' class="form-control" data-ng-model="searchApp.name" />
+                <span class="input-group-btn">
+                    <button id="searchButton" type="button" data-ng-click="" data-original-title="" class="btn btn-warning  app-list-search-btn"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div id="compteur" class="bubble">
+    <div class="colx2">
+        <div class="colx2_c">
+            <div class="col first">
+                <div class="sprite-ico-users"></div>
+                <p>&nbsp;<strong id="c_uti">{{utilisateurs}}</strong>&nbsp;&nbsp;UTILISATEURS
+                </p>
+            </div>
+            <div class="col">
+                <div class="sprite-ico-rdv"></div>
+                <p>&nbsp;<strong id="c_rdv">{{rendezvous}}</strong>&nbsp;&nbsp;RDV DÉJÀ PRIS
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="container">
+    <div class="colx3">
+        <div class="colx3_c">
+            <div class="col">
+                <h3 class="colx3_title" style="display: block;">Qui <strong>AlloTabib ?</strong>
+                </h3>
+                <img src="../../../Images/logo1.png" alt="Allo Tabib" class="on" style="display: none;">
+                <img src="../../../Images/logo1.png" alt="Allo Tabib">
+                <p> Il s'agit d'un moteur de recherche des docteurs pour accéder à leurs agendas et prendre un rendez vous.</p>
+                <p>La recherche est facile et rapide car on trouvera les heures de disponibilités des docteurs <br> et en un simple click, on pouvait effectuer notre réservation.
+                </p>
+            </div>
+            <div class="col">
+                <h3 class="colx3_title" style="display: block;">Il est <strong>Dédié à ?</strong>
+                </h3>
+                <img src="../../../Images/agenda.png" alt="Allo Tabib" class="on" style="display: none; width: 158px; height: 155px;">
+                <img src="../../../Images/agenda.png" alt="Allo Tabib" style="width: 158px; height: 155px;">
+                <p> Cette plateforme est composé de deux parties : une réservé aux patients et une autre réservé aux docteurs.</p>
+                <p>Elle offre au patient la possibilité de consulter la liste des docteurs de différentes spécialités et au docteur de vérifier son agenda, voir les confirmer ou les rejeter.</p>
+            </div>
+            <div class="col">
+                <h3 class="colx3_title" style="display: block;">Et le <strong>praricien?</strong>
+                </h3>
+                <img src="../../../Images/image2.png" alt="Allo Tabib" class="on" style="display: none; width: 158px; height: 155px;">
+                <img src="../../../Images/image2.png" alt="Allo Tabib" style="width: 158px; height: 155px;">
+                <p>Le patient est capable d'effectuer une recherche sur un docteur par sa spécialité, son nom ou sa ville (gouvernerat).
+                </p>
+                <p>Il pourra avoir accès aux données supplémentaires tel que numéro de téléphone, email, <br>ou son agenda pour pouvoir réserver un rendez vous.<br/>
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<br/>
+<!--<div class="container">
+    
+
+    <div class="row well well-lg">
+        <div class="col-md-4">
+            <p style="text-align: center;">
+                <img src="../../../Images/logo1.png" alt="Allo Tabib">
+            </p>
+            <h3 class="lead  alert alert-warning" style="text-align: center;">Qui sommes nous ?</h3>
+            <p style="text-align : justify;">
+                Il s'agit d'un moteur de recherche des docteurs pour accéder à leurs agendas et prendre un rendez vous.<br />
+                La recherche est facile et rapide car on trouvera les heures de disponibilités des docteurs et en un simple click, on pouvait effectuer notre réservation.
+
+
+
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p style="text-align: center;">
+                <img src="../../../Images/agenda.png" alt="Allo Tabib" style="width :158px; height:155px;">
+            </p>
+            <h3 class="lead  alert alert-info" style="text-align: center;">Dédié à ?</h3>
+            <p style="text-align : justify;">
+                Cette plateforme est composé de deux parties : une réservé aux patients et une autre réservé aux docteurs.<br />
+                Elle offre au patient la possibilité de consulter la liste des docteurs de différentes spécialités et au docteur de vérifier son agenda.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <p style="text-align: center;">
+                <img src="../../../Images/image2.png" alt="Allo Tabib" style="width :158px; height:155px;">
+            </p>
+            <h3 class="lead  alert alert-success" style="text-align: center;">Recherche de praticien proche</h3>
+            <p style="text-align : justify;">
+                Le patient est capable d'effectuer une recherche sur un docteur par sa spécialité, son nom ou sa ville. <br />
+                Il pourra avoir accès aux données supplémentaires tel que  numéro de téléphone, email, ou son agenda pour pouvoir réserver un rendez vous.
+            </p>
+        </div>
+    </div>
+</div>-->
+<section  class="alizarin">
+    <div class="container">
+        <div class="center" >
+            <h2>Comment ça marche chez AlloTabib ?</h2>
+            <p>Simple,rapide et facile : en quelques clicks</p>
+        </div>
+        <div class="gap"></div>
+        <div class="center">
+            <div class="col-md-4">
+                <span class="home-search">
+                    <img src="../../../Images/search.png" /></span>
+                <h4>Trouvez un praticien<br>
+                                        proche de vous.</h4>
+                <i class=".glyphicon-chevron-right hidden-xs"></i>
+            </div>
+            <div class="col-md-4">
+                <span class="home-calendar">
+                    <img src="../../../Images/reserver-rendez-vous.png" /></span>
+                <h4>Réservez votre rendez-vous<br>
+                                              en ligne.</h4>
+                <i class=".glyphicon-chevron-right hidden-xs"></i>
+            </div>
+            <div class="col-md-4">
+                <span class="home-doctor">
+                    <img src="../../../Images/doctor.png" /></span>
+                <h4>Se diriger vers votre docteur, votre<br>
+                                                        rendez-vous est confirmé.</h4>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    <section id="question" class="black">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center">
+                    <h2>Vous avez une question ? Vous avez besoin d'aide ?</h2>
+                    <p>Vous pouvez nous contacter à contact@allotabib.net</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

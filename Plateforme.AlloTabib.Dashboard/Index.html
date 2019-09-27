@@ -1,0 +1,208 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Votre Espace AlloTabib</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Allotabib">
+    <meta name="keyword" content="allotabib, rendez vous">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+ <!--   <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />-->
+      <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
+<!--    <script src="assets/js/chart-master/Chart.js"></script>-->
+    
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!--<link rel="stylesheet" href="../Content/main.css">-->
+    <!-- endbuild -->
+</head>
+<body data-ng-app="app">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+     <section id="container" >
+        <!--<header id="Header1" data-ng-controller="navigationController">-->
+            <!-- Navigation bar -->
+
+
+<!--            <nav class="navbar navbar-inverse" id="nav1">
+                <div class="collapse navbar-collapse">
+
+
+                    <ul id="Ul1" class="nav navbar-nav" style="color: white; font-weight: bolder; font-family: Arial; border-radius: 5px;">-->
+
+                        <!-- <li class="nav navbar-brand" id="Li1" style="padding: 0px 0px 0px 0px;">
+                                <img src="favicon.ico" height="20" width="20" />
+                            </li>-->
+
+
+<!--                        <li id="Li2" data-ng-class="{'active':isActive('/home')}">
+                            <a data-original-title="Home page." class="disable-click" href="#/home">Home</a>
+                        </li>
+
+                        <li data-ng-class="{'active':isActive('/demo')}">
+                            <a data-original-title="Demonstration page." class="disable-click" href="#/demo">Demonstration</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>-->
+        <!--    </header>-->
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+        
+         <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><b>Espace AlloTabib</b></a>
+            <!--logo end-->
+         <div class="nav notify-row" id="top_menu">
+               </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="#">Logout</a></li><!--retour vers la page d'authentification-->
+            	</ul>
+            </div>
+        </header>
+     <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+              	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <h5 class="centered">Marcel Newman</h5>
+              	  	
+                  <li class="mt" id="Li1"  data-ng-class="{'active':isActive('/demo')}">
+                      <a class="disable-click" data-original-title="Home page." href="#/demo">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Rendez vous</span>
+                      </a>
+                  </li>
+                  
+                  <!-- <li id="Li2" data-ng-class="{'active':isActive('/home')}">
+                            <a data-original-title="Home page." class="disable-click" href="#/home">Home</a>
+                        </li>-->
+
+
+                  <li class="mt">
+                      <a class="sub-menu" href="index.html">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Fiches patients</span>
+                      </a>
+                  </li>
+
+                   <li class="mt">
+                      <a class="sub-menu" href="index.html">
+                          <i class="fa fa-dashboard"></i>
+                          <span>FAQ</span>
+                      </a>
+                  </li>
+                 </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+             <section id="main-content">
+                    <section class="wrapper">
+                 <div data-ng-view=""></div>
+             </section>
+                 </section>
+        
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              2015 - AlloTabib
+              <a href="index.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+         </section>
+  
+      <!--sidebar end-->
+    <!--[if lt IE 9]>
+    <script src="../Scripts/es5-shim/es5-shim.js"></script>
+    <script src="../Scripts/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../Scripts/jquery.js"></script>
+    <script src="../Scripts/angular/angular.min.js"></script>
+    <script src="../Scripts/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../Scripts/json3/json3.js"></script>
+    <script src="../Scripts/bootstrap-sass-official/bootstrap/affix.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/transition.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/carousel.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/collapse.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/alert.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/button.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/dropdown.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tab.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/scrollspy.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tooltip.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/popover.js"></script>
+    <script src="../Scripts/angular-resource/angular-resource.js"></script>
+    <script src="../Scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="../Scripts/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../Scripts/angular-animate/angular-animate.js"></script>
+    <script src="../Scripts/angular-touch/angular-touch.js"></script>
+    <script src="../Scripts/angular-route/angular-route.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="Scripts/ng-clip.min.js"></script>
+    <script src="Scripts/Jquery.Block.js"></script>
+    <script src="Scripts/angular-strap/dist/modules/ng-clip.js"></script>
+    <script src="Scripts/ZeroClipboard/ZeroClipboard.js"></script>
+    <script src="Scripts/fusionCharts/js/fusioncharts.js"></script>
+    <script src="Scripts/fusionCharts/js/themes/fusioncharts.theme.zune.js"></script>
+    
+    
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!--   <script src="../Scripts/angular-ui-bootstrap/dist/ui-bootstrap-0.11.0.min.js"></script>-->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="/app/app.js"></script>
+    <script src="app/controllers/navigationController.js"></script>
+    <script src="app/controllers/demoController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <!-- endbuild -->
+
+    <!--Load services-->
+
+</body>
+</html>

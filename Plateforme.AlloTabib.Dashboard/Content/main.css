@@ -1,0 +1,168 @@
+﻿.label-same-size {
+    width: 100% !important;
+    display: block;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.table-hover > tbody > tr:hover > td {
+    background-color: #e6fbe6;
+}
+
+.panel-info > .panel-heading {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.popover-style {
+    width: 650px;
+}
+
+.pagesize-selector > .btn.active {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.filter-btn {
+    color: #428bca;
+}
+
+    .filter-btn .active {
+        color: #fff;
+        background-color: #428bca;
+    }
+
+.customer-type-label {
+    margin: 0;
+    font-size: 120%;
+    border-spacing: 2px;
+}
+
+.text-center {
+    text-align: center;
+    padding: 5px;
+}
+
+    .text-center > * {
+        text-align: center;
+        padding: 5px !important;
+    }
+
+    .text-center > td {
+        text-align: center;
+        padding: 5px;
+    }
+
+.table-left {
+    width: 50%;
+    float: left;
+}
+
+    .table-left > tbody > tr {
+        height: 40px !important;
+    }
+
+        .table-left > tbody > tr > td {
+            border-top: none;
+        }
+
+.table-right {
+    width: 50%;
+    float: right;
+}
+
+    .table-right > tbody > tr {
+        height: 40px !important;
+    }
+
+        .table-right > tbody > tr > td {
+            border-top: none;
+        }
+
+.btn-action-detail {
+    height: 42px;
+}
+
+.status-info-details {
+    min-height: 40px;
+}
+
+.icon-space-sm {
+    margin-right: 5px;
+}
+
+.icon-space-xs {
+    margin-right: 2px;
+}
+
+.info-data-list > li {
+    font-size: 85%;
+    z-index: 3;
+}
+
+    .info-data-list > li:first-child {
+        -ms-border-top-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+
+.absolute-list-container {
+    position: absolute;
+    width: 190px;
+}
+
+.plus-minus-panel-icon {
+    cursor: pointer;
+}
+
+    .plus-minus-panel-icon > span {
+        float: right;
+    }
+
+.info-panel-title {
+    font-size: 200%;
+}
+
+.info-panel-subtitle {
+    font-size: 55%;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+.operator-login-container {
+    margin-top: 15%;
+    width: 70%;
+}
+
+.current-operator-label {
+    position: absolute;
+    right: 7%;
+    top: 2%;
+}
+
+    .current-operator-label > ul {
+        background-color: #39b3d7;
+        background-color: rgba(57, 179, 215, 0.5);
+    }
+
+.tooltip-inner {
+    background-color: #428bca;
+    background-color: rgba(66, 139, 202, 0.8);
+    color: #fff;
+    white-space: pre-wrap;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #428bca;
+    border-left-color: rgba(66, 139, 202, 0.8);
+}
