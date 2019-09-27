@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84C2A43B-DEE1-44DF-A642-482C880C4C5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Plateforme.AlloTabib.ApplicationLayer</RootNamespace>
+    <AssemblyName>Plateforme.AlloTabib.ApplicationLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Develop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Develop\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\net45\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TweetSharp">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServices\AlloTabibUserServices\AlloTabibUserAppServices.cs" />
+    <Compile Include="ApplicationServices\AlloTabibUserServices\FacebookUserAppServices.cs" />
+    <Compile Include="ApplicationServices\AlloTabibUserServices\IAlloTabibUserAppServices.cs" />
+    <Compile Include="ApplicationServices\AlloTabibUserServices\IFacebookUserAppServices.cs" />
+    <Compile Include="ApplicationServices\CalendrierAppServices\CalendrierAppServices.cs" />
+    <Compile Include="ApplicationServices\CalendrierAppServices\ICalendrierAppServices.cs" />
+    <Compile Include="ApplicationServices\ConfigurationAppServices\ConfigurationAppServices.cs" />
+    <Compile Include="ApplicationServices\ConfigurationAppServices\IConfigurationAppServices.cs" />
+    <Compile Include="ApplicationServices\ContactAppServices\ContactAppServices.cs" />
+    <Compile Include="ApplicationServices\ContactAppServices\IContactAppServices.cs" />
+    <Compile Include="ApplicationServices\CreneauAppServices\CreneauAppServices.cs" />
+    <Compile Include="ApplicationServices\CreneauAppServices\ICreneauAppServices.cs" />
+    <Compile Include="ApplicationServices\JourFerieAppServices\IJourFerieAppServices.cs" />
+    <Compile Include="ApplicationServices\JourFerieAppServices\JourFerieAppServices.cs" />
+    <Compile Include="ApplicationServices\PatientAppServices\IPatientApplicationServices.cs" />
+    <Compile Include="ApplicationServices\PatientAppServices\PatientApplicationServices.cs" />
+    <Compile Include="ApplicationServices\PraticienAppServices\IPraticienApplicationServices.cs" />
+    <Compile Include="ApplicationServices\PraticienAppServices\PraticienApplicationServices.cs" />
+    <Compile Include="ApplicationServices\RendezVousAppServices\IRendezVousAppServices.cs" />
+    <Compile Include="ApplicationServices\RendezVousAppServices\RendezVousAppServices.cs" />
+    <Compile Include="ApplicationServices\TwitterAppServices\ITwitterAppServices.cs" />
+    <Compile Include="ApplicationServices\TwitterAppServices\TwitterAppServices.cs" />
+    <Compile Include="ApplicationServices\VideoAppServices\IVideoApplicationServices.cs" />
+    <Compile Include="ApplicationServices\VideoAppServices\VideoApplicationServices.cs" />
+    <Compile Include="Base\ProjectionsExtensionMethods.cs" />
+    <Compile Include="DTO\CalendarDto.cs" />
+    <Compile Include="DTO\ConfigurationPraticienDto.cs" />
+    <Compile Include="DTO\CreneauDataDTO.cs" />
+    <Compile Include="DTO\JourFerieDTO.cs" />
+    <Compile Include="DTO\PatientDTO.cs" />
+    <Compile Include="DTO\PraticienDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\RendezVousDTO.cs" />
+    <Compile Include="Factories\EntitiesFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Plateforme.AlloTabib.CrossCuttingLayer\Plateforme.AlloTabib.CrossCuttingLayer.csproj">
+      <Project>{0955c585-f839-4747-9383-47bd0bbe4130}</Project>
+      <Name>Plateforme.AlloTabib.CrossCuttingLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plateforme.AlloTabib.DomainLayer\Plateforme.AlloTabib.DomainLayer.csproj">
+      <Project>{0056130f-4355-4220-828e-3f6ba6a54201}</Project>
+      <Name>Plateforme.AlloTabib.DomainLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlateformeAlloTabib.Standards\PlateformeAlloTabib.Standards.csproj">
+      <Project>{D8C3A947-FCB4-4D74-8E08-3A40E57D81A1}</Project>
+      <Name>PlateformeAlloTabib.Standards</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
