@@ -1,0 +1,169 @@
+﻿<div id="patientsContent" style="padding-top: 5%;" class="container">
+  <style>
+       .bubble {
+        position: relative;
+        width: auto;
+        height: auto;
+        padding: 5px;
+        background-color: #e6f4fb;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 2px solid #428bca;
+    }
+
+        .bubble:after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 0 10px 9px;
+            border-color: transparent #428bca;
+            display: block;
+            width: 1px;
+            z-index: 10;
+            margin-top: -7px;
+            right: -9px;
+            top: 50%;
+        }
+
+    .patientPanel {
+        cursor: pointer;
+        width: 100%;
+        height: 70px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        padding: 5px;
+        font-family: Tahoma;
+    }
+
+    .listPanel {
+        border-radius: 5px;
+        border: 1px solid #428bca;
+    }
+  </style>
+     <div id="Div1" style="margin-top: 1.3%;">
+        <!-- Delete an account from specific patient error message -->
+        <div id="actionInPatientErrorMessage" data-ng-show="actionInPatientError" class="alert alert-danger alert-dismissable" style="height: auto;">
+            <button id="Button4" type="button" class="close" data-ng-click="closePanels()"><span class="glyphicon glyphicon-chevron-up btn-sm"></span></button>
+            <span class="glyphicon glyphicon-warning-sign space-right"></span>
+            <span>Erreur de récupération de la liste de vos patients</span>
+        </div>
+
+        <!-- success message -->
+        <div id="actionInPatientSuccessMessage" data-ng-show="actionInSpecificPatientDone" class="alert alert-success alert-dismissable" style="height: auto;">
+            <button id="Button3" type="button" class="close" data-ng-click="closePanels()">&times;</button>
+            <span class="glyphicon glyphicon-ok space-right"></span>
+            <span>{{successMessageInPatient}}</span>
+        </div>
+
+        <!--AddButton + Search + Edit/ Delete Button -->
+        <div id="header" class="well" style="width: 100%; border: 1px solid lightgray; border-radius: 5px; height: 80px; padding: 20px 10px 10px 15px; margin-bottom: 1%;">
+            <table>
+                <tr>
+                    <td>
+                        <div data-ng-show="nomPrenom" style="float:left;">
+                            <h4>{{nomPrenom}}</h4>
+                        </div>
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                        <div class="input-group actions-and-search-input-group">
+                            <span class="input-group-btn">
+                                <button id="ResetSearchIpInputText" data-original-title="" type="button" data-ng-click="Initialize()" class="btn btn-primary"><span class="glyphicon glyphicon-repeat"></span></button>
+                            </span>
+                            <input type="text" placeholder='Rechercher un patient' class="form-control" data-ng-model="searchPatient" />
+                        </div>
+                        <!--<input type="text" placeholder='Recherche' class="form-control col-md-3" style="float:right;" data-ng-model="searchPatient" />-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Error treating -->
+        <div style="width: 100%; height: 20%; float: left" data-ng-show="errorMessage || transactionState">
+            <table data-ng-show="patients.length == 0 && !errorMessage && transactionState" class="spacer col-sm-10 table table-striped table-bordered table-condensed" style="width: 100%; height: 25%;">
+                <tbody>
+                    <tr class="error">
+                        <td colspan="2" style="margin-bottom: auto; margin-top: auto">
+                            <div class="text-center" style="padding-top: 5px; padding-bottom: 5px;"><strong>{{transactionState}}</strong></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table style="width: 100%; height: 20%;" data-ng-show="errorMessage">
+                <tr>
+                    <td>
+                        <div class="panel panel-danger">
+                            <div class="panel-heading panel-lg"><span class="glyphicon glyphicon-warning-sign icon-space" style="font-size: 20px;"></span><strong style="font-size: 20px; padding-left: 10px;">Error</strong> </div>
+                            <div class="panel-body"><strong>{{errorMessage}}</strong></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="list-of-patients" data-ng-hide="patients.length == 0">
+            <!-- Content -->
+            <div id="panelPatientContent" class="info-sur-patient" style="float: left; padding-top: 5px; margin-right: 10px;">
+                <div id="panelpatient" data-ng-repeat="patient in patients | filter:searchPatient" data-ng-click="getPatientDetails(patient)" on-finish-render>
+                    <div id="patientPanel_{{patient.cin}}" class="listPanel panel" style="cursor: pointer;">
+
+                        <div class="panel-body row" style="width: 100%; padding: 0px; margin-left: 0px; margin-top: 10px; margin-bottom: 10px">
+
+                            <div class="col-md-8"><span style="font-weight: bold; font-size: 14px;">{{patient.nomPrenom}}</span></div>
+                            <div class="col-md-4">
+                                <span style="float: right;padding-left: 10px; padding-right: 10px; border-radius: 3px; width: auto; text-align: center;">{{patient.email}}</span>
+                            </div>
+
+                            <div class="col-md-8">{{patient.adresse}}</div>
+                            <div class="col-md-4">
+                                <span style="float: right;padding-left: 10px; padding-right: 10px; border-radius: 3px; width: auto; text-align: center;">{{patient.telephone}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--<div class="row">-->
+                    <!--<div class="col-md-offset-2 col-md-12 col-md-offset-0" style="width: 100%;text-align:center;">
+                        <div data-ng-show="patients.length > 0">
+                            <div >
+
+                                <pagination data-total-items="totalRecordsCount"
+                                            data-ng-model="currentPage"
+                                            data-page="currentPage"
+                                            data-max-size="maxSize"
+                                            class="pagination-sm"
+                                            data-on-select-page="pageChanged(page)"
+                                            data-items-per-page="pageSize"
+                                            data-rotate="false"
+                                            data-page-count="totalPages"
+
+                                            data-previous-text="&#60;"
+                                            data-next-text="&#62;"
+                                            data-first-text="&#8810;"
+                                            data-last-text="&#8811;"
+
+                                            data-boundary-links="true">
+
+                                </pagination>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+            <div data-ng-hide="patients.length == 0" class="infoPatient"style="float: left;  padding: 5px; margin-left: 5px;">
+                <div class="panel panel-info">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Informations générales</div>
+                    <div class="panel-body">
+                        <div data-ng-show="selectedPatient" data-ng-include="'/app/views/mespatients/detailspatient.html'"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    </div>

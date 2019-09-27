@@ -1,0 +1,68 @@
+﻿<style>
+    body {
+        background: url('http://res.cloudinary.com/allotabib/image/upload/v1431535078/apple_desktop-wallpaper-1600x900_uigovh.jpg') no-repeat center fixed;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<div class="container">
+    <div style="background-color: #ebf1fa;border-radius: 10px;text-align: center;margin-top:10%;">
+        <br />
+        <h2>Connexion à l'espace personnel</h2>
+
+        <div class="form-group">
+            <div style="color: #134263; text-align: center;">Identification à votre espace.</div>
+            <div class="rose-color">
+                <span class="glyphicon glyphicon-info-sign"></span> Réservé aux praticiens.
+            </div>
+            <br />
+
+            <p>
+                Si vous n'avez pas de compte, cliquer <a href="#" data-ng-href="http://allotabib.net/index.html#/inscrirepraticien" target="_blanc">ICI</a> pour vous inscrire.
+                <br />
+            </p>
+
+            <form class="" id="formLoginPatient" name="loginPatientForm" style="margin-left: 20%; margin-right: 20%;">
+                <div id="invalidMsg" class="alert alert-danger alert-dismissable">
+                    <button id="closeAlert" type="button" class="close">&times;</button>
+                    <span class="glyphicon glyphicon-warning-sign space-right"></span>
+                    {{errorLoginIn}}
+
+                </div>
+                <div>
+                    <div class="input-group">
+                        <div class="input-group-addon">@</div>
+                        <input type="text" class="form-control" placeholder="Email" required="" autofocus id="userName" name="userName" data-ng-change="loginInputChanged()" data-ng-model="userName">
+                    </div>
+                    <div class="alert alert-danger" data-ng-show="loginPraticienForm.email.$invalid && loginPraticienForm.email.$dirty && !hideLoginValidationError">
+                        <small class="error" data-ng-show="loginPraticienForm.email.$error.required">Veuillez introduire votre adresse électronique.</small>
+                        <small class="error" data-ng-show="loginPraticienForm.email.$error.email">Le format de l'email n'est pas correcte.</small>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <div class="input-group">
+                        <div class="input-group-addon" style="max-width: 47px;">*</div>
+                        <input type="password" class="form-control" placeholder="Mot de passe" required="" id="password" name="password" data-ng-change="loginInputChanged()" data-ng-model="password">
+                    </div>
+
+                    <div class="alert alert-danger" data-ng-show="loginPraticienForm.password.$invalid && loginPraticienForm.password.$dirty && !hideLoginValidationError">
+                        <small class="error" data-ng-show="loginPraticienForm.password.$error.required">Veuillez introduire votre mot de passe.</small>
+                    </div>
+                </div>
+                <br /><br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit" data-ng-click="connectedAndRedirectedToHome()" id="loginPraticienBtn"
+                        data-ng-disabled="loginPraticienForm.email.$invalid|| loginPraticienForm.password.$invalid" style="cursor: pointer;">
+                    <span>Connectez vous</span>
+                </button>
+
+                <br /><br />
+                
+            </form>
+
+        </div>
+
+    </div>
+</div>

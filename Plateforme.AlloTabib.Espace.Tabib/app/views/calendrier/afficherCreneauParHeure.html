@@ -1,0 +1,99 @@
+﻿        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="close()"><span aria-hidden="true">&times;</span></button>
+                <h4 data-ng-hide="estJourFerie" class="modal-title modal-title-font" id="myModalLabel"><span class="glyphicon glyphicon-plus icon-space"></span>{{evenementTitle}} | {{selectedDate}} |  à {{heureDebut}}  </h4>
+                <h4 data-ng-show="estJourFerie">Jour férié !</h4>
+            </div>
+            <div class="modal-body">
+                <div data-ng-show="estJourFerie">
+                    <h5>Vous avez signalé le jour en tant que jour de repos (férié ou dimanche), pour ajouter des rendez vous dans ce jour, veuillez supprimer le jour férié.</h5>
+                </div>
+               
+                <div data-ng-hide="estJourFerie">
+                    <form class="form-horizontal" id="formConfirmRdv" name="confirmRdvForm" novalidate style="margin-left: 20px;">
+
+                        <div class="form-group">
+                            <label for="inputheureDebut" class="col-sm-5 control-label" style="text-align: left;">Heure début</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="width: 46px;">
+                                        <i class="fa fa-calendar-o" style="font-size: 21px;"></i>
+                                    </div>
+                                    <input data-ng-hide="isCreated" class="form-control" type="text" placeholder="{{heur.heureDebutCalendrier}}" data-ng-model="confirmRdv.heureDebut" name="heurDebut" data-ng-maxlength="6" disabled>
+                                    <input data-ng-show="isCreated" list="heureDebutLst" class="form-control" type="text" placeholder="" id="hdebut" name="hdebut" data-ng-model="confirmRdv.heureDebut" required="" data-ng-maxlength="25" style="width: 218px;" data-ng-change="stateInputChanged(confirmRdv.heureDebut)" />
+                                    <datalist id="heureDebutLst" data-ng-show="isCreated">
+                                        <option data-ng-repeat="hdebut in heuresDebut">{{hdebut}}</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" data-ng-show="isCreated">
+                            <label for="inputFax" class="col-sm-5 control-label" style="text-align: left;">Heure fin</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="width: 46px;">
+                                        <i class="fa fa-calendar-o" style="font-size: 21px;"></i>
+                                    </div>
+                                    <!--<input data-ng-hide="isCreated" class="form-control" type="text" placeholder="" data-ng-model="confirmRdv.heureFin" name="heureFin" data-ng-maxlength="6" disabled>-->
+                                    <input data-ng-show="isCreated" list="heureFinLst" class="form-control" type="text" placeholder="" id="heureFin" name="heureFin" data-ng-model="confirmRdv.heureFin" required="" data-ng-maxlength="25" style="width: 218px;" />
+                                    <datalist id="heureFinLst" data-ng-show="isCreated">
+                                        <option data-ng-repeat="hfin in filtredheuresFin">{{hfin}}</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFax" class="col-sm-5 control-label" style="text-align: left;">Patient</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="width: 46px;">
+                                        <i class="fa fa-user" style="font-size: 21px;"></i>
+                                    </div>
+                                    <input data-ng-hide="isCreated" class="form-control" type="text" placeholder="" data-ng-model="confirmRdv.patient" name="patient" data-ng-maxlength="50" disabled>
+                                    <input data-ng-show="isCreated" list="patientLst" class="form-control" type="text" placeholder="" id="patient" name="patient" data-ng-model="confirmRdv.patient" data-ng-maxlength="25" style="width: 218px;" />
+                                    <datalist id="patientLst" data-ng-show="isCreated">
+                                        <option data-ng-repeat="patient in patients">{{patient.nomPrenom}}-{{patient.telephone}}</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" data-ng-hide="isCreated">
+                            <label for="inputFax" class="col-sm-5 control-label" style="text-align: left;">N° Téléphone patient</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="width: 46px;">
+                                        <i class="fa fa-mobile-phone" style="font-size: 21px;"></i>
+                                    </div>
+                                    <input class="form-control" type="text" placeholder="" data-ng-model="confirmRdv.telephone" name="telephone" data-ng-maxlength="50" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" data-ng-hide="isCreated">
+                            <label for="inputFax" class="col-sm-5 control-label" style="text-align: left;">CIN patient</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon" style="width: 46px;">
+                                        <i class="fa fa-users" style="font-size: 21px;"></i>
+                                    </div>
+                                    <input class="form-control" type="text" placeholder="" data-ng-model="confirmRdv.cin" name="cin" data-ng-maxlength="50" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="text-warning">{{informations}}</h4>
+                        <div data-ng-hide="isCreated">
+                            <button data-ng-show="hideConfirmButton" id="confirmerrdv" type="button" class="btn btn-warning" data-ng-click="confirmerOuRejeterCreneau(confirmRdv.cin,confirmRdv.heureDebut,'C',confirmRdv.patientCin)"><span class="glyphicon glyphicon-ok icon-space"></span> Confirmer</button>
+
+                            <button  id="rejeterrdv" type="button" class="btn btn-danger" data-ng-click="confirmerOuRejeterCreneau(confirmRdv.cin,confirmRdv.heureDebut,'R',confirmRdv.patientCin)"><span class="glyphicon glyphicon-ok icon-space"></span> Rejeter</button>
+                        </div>
+
+                        <button data-ng-show="isCreated" id="ajouterrrdv" type="button" class="btn btn-warning" data-ng-click="ajouterCreneau(confirmRdv)"><span class="glyphicon glyphicon-ok icon-space"></span> Confirmer</button>
+
+
+                    </form>
+                </div>
+
+
+
+
+            </div>
+        </div>

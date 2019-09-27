@@ -1,0 +1,317 @@
+﻿<div class="row  well-lg row" style="padding-top: 4%;">
+    <style>
+        .statusND {
+            background-color: #CABDBF;
+            border-color: #CABDBF;
+        }
+
+        .statusD {
+            background-color: #FCE0E9;
+            border-color: #F9A9C3;
+        }
+        .coin {
+            background-color: #E4EFFF;
+            /*border: 1px solid #9FC6FF;*/
+            padding: 5px;
+            /*arrondir les coins en haut à gauche et en bas à droite*/
+            -moz-border-radius: 10px 0;
+            -webkit-border-radius: 10px 0;
+            border-radius: 10px 0;
+        }
+        .list-group.panel > .list-group-item {
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .list-group-submenu {
+            margin-left: 20px;
+        }
+        .strong {
+            font-weight: bold;
+        }
+
+        /* Partie ici*/
+       
+        .mail_list_column {
+            /*border-left: 1px solid #DBDBDB;*/
+            border-bottom-color: #9FC6FF;
+        }
+
+        .mail_view {
+            /*border-left: 1px solid #DBDBDB*/
+           
+        }
+
+        .mail_list {
+            width: 100%;
+            /*border-bottom: 1px solid #DBDBDB;
+            margin-bottom: 2px;*/
+            display: inline-block;
+        }
+
+        .mail_list .left {
+            width: 5%;
+            float: left;
+            margin-right: 3%
+        }
+
+        .mail_list .right {
+            width: 90%;
+            float: left
+        }
+
+        .mail_list h3 {
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0px 0 6px;
+        }
+
+        .mail_list h3 small {
+            float: right;
+            color: #000080;
+            font-size: 11px;
+            line-height: 20px;
+            font-weight: bold;
+        }
+
+        .mail_list .badge {
+            padding: 3px 6px;
+            font-size: 8px;
+            background: #BAB7B7
+        }
+        @media (max-width: 767px) {
+            .mail_list {
+                margin-bottom: 5px;
+                display: inline-block;
+            }
+        }
+
+        .classWithPad { margin:5px 15px 0px 10px; }
+
+    </style>
+    
+    <div id="header" class="well wells-actions">
+        <div class ="row" >
+            <pre style=" display: block; margin-left: auto; margin-right: auto;text-align: center;"> {{selectedDate}} </pre>
+        </div>
+        <div class="row" style=" display: block; margin-left: auto; margin-right: auto;text-align: center;">
+            <div class="col-md-2 col-sm-2 col-xs-2 actions-list">
+
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" id="dateSelect" name="selectedDate" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                       
+
+                        $('#datetimepicker1').datetimepicker({
+                            format: false,
+                            dayViewHeaderFormat: 'MMMM YYYY',
+                            extraFormats: false,
+                            stepping: 1,
+                            minDate: false,
+                            maxDate: false,
+                            useCurrent: true,
+                            collapse: true,
+                            locale: moment.locale(),
+                            defaultDate: false,
+                            disabledDates: false,
+                            enabledDates: false,
+                            icons: {
+                                time: 'glyphicon glyphicon-time',
+                                date: 'glyphicon glyphicon-calendar',
+                                up: 'glyphicon glyphicon-chevron-up',
+                                down: 'glyphicon glyphicon-chevron-down',
+                                previous: 'glyphicon glyphicon-chevron-left',
+                                next: 'glyphicon glyphicon-chevron-right',
+                                today: 'glyphicon glyphicon-screenshot',
+                                clear: 'glyphicon glyphicon-trash',
+                                close: 'glyphicon glyphicon-remove'
+                            },
+                            useStrict: false,
+                            sideBySide: false,
+                            daysOfWeekDisabled: [],
+                            calendarWeeks: false,
+                            viewMode: 'days',
+                            toolbarPlacement: 'default',
+                            showTodayButton: false,
+                            showClear: false,
+                            showClose: false,
+                            widgetPositioning: {
+                                horizontal: 'auto',
+                                vertical: 'auto'
+                            },
+                            widgetParent: null,
+                            ignoreReadonly: false,
+                            keepOpen: false,
+                            focusOnShow: true,
+                            inline: false,
+                            keepInvalid: false,
+                            datepickerInput: '.datepickerinput'
+                            //pickTime: false,
+                            //language: 'fr',
+                            //showToday: true,
+                            //useCurrent: true,
+                            //defaultDate: new Date(),
+                            //inline: true,
+                            //sideBySide: true
+                            //minDate: new Date() : c est pour bloquer le min des dates
+                        });
+
+
+
+                    });
+
+                   
+
+                </script>
+
+
+
+            </div>
+
+
+
+            <div class="col-md-10 col-sm-10 actions-list">
+                <div class="btn-group-actions-separated pull-right">
+                    <button id="Confirmer" type="button" class="btn btn-info" data-ng-click="getDate()"><span class="fa fa-check"></span> Confirmer</button>
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-ng-click="openPopupImprimer(selectedDate)"
+                            data-original-title="Liste des rendez vous en cours.">
+                        <span class="fa fa-print icon-space"></span>Imprimer
+                    </button>
+                    <button id="Ferie" type="button" class="btn btn-success" data-ng-click="ajouterJourFerie()" data-toggle="modal"><span class="fa fa-calendar-o"></span> {{jourFerie}}</button>
+                    <div class="ndRendez">
+                        <button class="btn statusD" style="color: #7b8a8b; font-weight: bold; ">Disponible</button>
+                        <button class="btn statusND" style="color: #7b8a8b; font-weight: bold; ">Rendez vous pris</button>
+                    </div>
+
+                 
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+  
+    
+   
+    <!-- define the calendar element -->
+    <!-- <div id="my-calendar" class="col-md-3">-->
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-sm-3">
+
+                <div id="MainMenu classWithPad">
+                    <div class="list-group panel">
+                        <a href="#calendrier" class="list-group-item list-group-item-success strong" data-toggle="collapse" data-parent="#MainMenu"><span>Confirmation des RDVs </span><i class="fa fa-caret-square-o-right pull-right"></i></a>
+                        <div class="collapse" id="calendrier">
+                            <div class="mail_list_column classWithPad" data-ng-repeat="rdv in rdvsNonConfirme">
+                                <div class="mail_list classWithPad">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p>
+                                                <button type="button" class="btn btn-success">
+                                                    <i class="fa fa-check-circle-o" data-ng-click="confirmOrRejectRdv(rdv,true)"></i>
+                                                </button>
+                                            </p>
+                                            <p>
+                                                <button type="button" class="btn btn-danger">
+                                                    <i class="fa fa-times-circle-o" data-ng-click="confirmOrRejectRdv(rdv,false)"></i>
+                                                </button>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">
+                                                        {{rdv.patientNomPrenom}}<small style="margin-right: 10px;">{{rdv.currentDate}} {{rdv.heureDebut}}</small>
+                                                    </h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <p>Téléphone : {{rdv.patientTelephone}}</p>
+                                                    <p>Email : {{rdv.praticienEmail}}</p>
+                                                    <p>Date de naissance : {{rdv.patientDateNaissance}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--<div style="overflow:hidden;">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="datetimepicker12"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('#datetimepicker12').datetimepicker({
+                                inline: true,
+                                sideBySide: true
+                            });
+                        });
+                    </script>
+                </div>-->
+
+            </div>
+            <div class="col-sm-9">
+
+                <div class="scroll">
+                    <table class="table table-bordered table-striped table-condensed" style="border-spacing: 0; border-collapse: collapse; ">
+                        <thead>
+                            <tr style="text-align: center;">
+                                <th class="col-md-1">
+
+                                </th>
+                                <th class="col-md-11">
+                                    <span id="selecteddatespan" style="width:100%;"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="heur in heures track by $index" on-finish-render>
+                                <td data-th="{{heur}}" style="width: 10%;">{{heur.heureDebutCalendrier}}</td>
+                                <!--Ici ça sera générique-->
+                                <td id="{{heur.heureDebutCalendrier}}" style="width:90%;cursor: pointer; border-collapse: collapse; border-collapse: collapse;" data-ng-click="updateCreneau(heur)">
+                                    <div id="{{heur.heureDebutCalendrier}}_" data-ng-show="heur" data-ng-class="loadClassStatus(heur.statut)"><span>&nbsp;</span><span data-ng-hide="isNotAvailable(heur.statut)"> {{heur.nomPrenomPatient}}</span></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Popup pour dire aux praticien que ce jour contient des rendez et s'il confirme il va rejeter tous ces rendez vous-->
+                <div class="modal fade" id="confirmFerieModal" tabindex="-1" role="dialog" aria-labelledby="confirmFerieModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="modal-body">
+                                    <form class="form-horizontal" id="formConfirmFerie" name="confirmFerieForm" novalidate style="margin-left: 20px;">
+                                        <h4><span class="glyphicon glyphicon-warning-sign icon-space"></span>  Ce jour contient des rendez vous si vous le confirmer, tous vos rendez vous seront annulés !!</h4>
+                                        <button id="confirmerferie" type="button" class="btn btn-success" data-ng-click="confirmerFerieRendezVous()"><span class="glyphicon glyphicon-ok icon-space"></span> Confirmer</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

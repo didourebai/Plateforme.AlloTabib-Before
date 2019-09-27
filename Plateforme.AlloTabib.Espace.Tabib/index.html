@@ -1,0 +1,173 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="ALiV2QMqWwT3Dl_RNb_XoV0nagYlyVmqeQ9z64VxDEE" />
+    <meta name="description" content="prendre un rendez vous médical en ligne">
+
+    <title>Votre Espace Tabib</title>
+    <link href="Content/toastr.min.css" rel="stylesheet" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet">
+    <link href="../Content/bootstrap-flatly.min.css" rel="stylesheet">
+    <link href="../Content/font-awesome.min.css" rel="stylesheet">
+    <link href="../Content/jquery-ui.css" rel="stylesheet" />
+    <link href="../Content/style-responsive.css" rel="stylesheet">
+    <link href="../Content/table-responsive.css" rel="stylesheet">
+    <link href="../Content/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../Content/half-slider.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../Content/zabuto_calendar.css">
+
+    <!--Login Page CSS-->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="../Content/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body data-ng-app="app">
+
+    <!-- Add your site or application content here -->
+
+    <div id="nav" data-ng-include="'/app/views/home/nav.html'"></div>
+
+    <div class="clearfix">
+        <section>
+            <div data-ng-view=""></div>
+        </section>
+    </div>
+
+
+
+
+
+    <div id="footer">
+        <!--<div class="container">
+            <div class="row">
+                <div class="col-sm-10" style="color: white;">
+                    Copyright &copy; 2014 Tous droits sont réservés à l'équipe AlloTabib
+                </div>
+                <div class="col-sm-2">
+                    <a href="#/mentionsLegales">Mentions légales</a>
+                </div>
+            </div>
+
+        </div>-->
+    </div>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="../Scripts/es5-shim/es5-shim.js"></script>
+    <script src="../Scripts/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+<!--<script src="../Scripts/jquery-1.11.0.js"></script>-->
+
+    <script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../Scripts/moment.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap-datetimepicker.js"></script>
+
+
+<!--<script type="text/javascript" src="../Scripts/jquery.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>-->
+    
+    <!--<script type="text/javascript" src="../Scripts/jquery.js"></script>-->
+    <!--<script type="text/javascript" src="../Scripts/jquery-ui.js"></script>-->
+
+    <script src="../Scripts/jQuery.print.js"></script>
+    <script src="../Scripts/Jquery.Block.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Scripts/toastr.min.js"></script>
+    <script src="../Scripts/angular/angular.min.js"></script>
+    <script src="../Scripts/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../Scripts/json3/json3.js"></script>
+    <script src="../Scripts/bootstrap-sass-official/bootstrap/affix.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/transition.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/carousel.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/collapse.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/alert.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/button.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/dropdown.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tab.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/scrollspy.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/tooltip.js"></script>
+    <script src="../Scripts/angular-strap/dist/modules/popover.js"></script>
+    <script src="../Scripts/angular-resource/angular-resource.js"></script>
+    <script src="../Scripts/angular-cookies/angular-cookies.js"></script>
+    <script src="../Scripts/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../Scripts/angular-animate/angular-animate.js"></script>
+    <script src="../Scripts/angular-touch/angular-touch.js"></script>
+    <script src="../Scripts/angular-route/angular-route.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="../Scripts/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="../Scripts/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="Scripts/ng-clip.min.js"></script>
+    <script src="Scripts/Jquery.Block.js"></script>
+    <script src="Scripts/angular-strap/dist/modules/ng-clip.js"></script>
+    <script src="Scripts/ZeroClipboard/ZeroClipboard.js"></script>
+    <script src="Scripts/fusionCharts/js/fusioncharts.js"></script>
+    <script src="Scripts/fusionCharts/js/themes/fusioncharts.theme.zune.js"></script>
+
+
+    <!--<script src="../Scripts/moment.js"></script>-->
+    <!--<script src="../Scripts/moment-with-locales.js"></script>
+    <script src="../Scripts/bootstrap-datetimepicker.js"></script>-->
+    <script src="../Scripts/zabuto_calendar.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="/app/app.js"></script>
+
+    <!-- <script src="app/services/patientServices/patientApiServices.js"></script>
+    <script src="app/services/praticienServices/praticienApiServices.js"></script>
+    <script src="app/services/contactServices/contactApiServices.js"></script>-->
+    <script src="app/services/praticienServices/praticienApiServices.js"></script>
+    <script src="app/services/accountServices/accountApiServices.js"></script>
+    <script src="app/services/calendrierServices/calendrierApiServices.js"></script>
+    <script src="app/services/contactServices/contactApiServices.js"></script>
+
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/navigationController.js"></script>
+    <script src="app/controllers/modals/calendrierModalController.js"></script>
+    <script src="app/controllers/calendrierController.js"></script>
+    <script src="app/controllers/mespatientsController.js"></script>
+    <script src="app/controllers/moncompteController.js"></script>
+    <script src="app/controllers/navigationController.js"></script>
+    <script src="app/controllers/modals/afficherCreneauParHController.js"></script>
+
+    <!-- endbuild -->
+    <!--Load services-->
+
+
+    <script type="text/javascript" src="../Scripts/kinetic-v5.1.0.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.final-countdown.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+
+
+
+        $(".collapse").collapse();
+        $(".navbar-collapse").collapse('hide');
+
+        $(document).on('click', '.navbar-collapse.in', function (e) {
+
+            if ($(e.target).is('a') && ($(e.target).attr('class') != 'dropdown-toggle')) {
+                $(this).collapse('hide');
+            }
+
+        });
+
+    </script>
+</body>
+</html>

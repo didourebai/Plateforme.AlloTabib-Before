@@ -1,0 +1,345 @@
+﻿<div class="container" style="padding-top: 5%;">
+    <div class="panel panel-info" style="margin-top: 2em;">
+        <div class="panel panel-body" style="background-color: #ebf1fa;">
+            <form class="form-horizontal" id="formAddPraticien" name="udpatedPraticienForm" novalidate style="margin-left: 20px;">
+
+                <div class="col-md-5 col-sm-5">
+
+                    <div class="form-group" >
+
+                        <div class="col-sm-12">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.newEmail.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-at"></i>
+                                </div>
+                                <input class="form-control input-width-class-m" type="email" placeholder="Adresse électronique" id="newEmail" disabled="" name="newEmail" data-ng-change="inputChanged()" data-ng-model="udpatePraticien.email" required="" data-ng-click="Isclicked();">
+
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.newEmail.$invalid && udpatedPraticienForm.newEmail.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.newEmail.$error.required">Veuillez introduire votre adresse électronique.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.newEmail.$error.email">Le format de l'email n'est pas correcte.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.formPassword.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                                <input class="form-control input-width-class-m" type="password" placeholder="Mot de passe" data-ng-change="inputChanged()" name="formPassword" data-ng-model="udpatePraticien.password" data-ng-minlength="5" data-ng-maxlength="20" required="" data-ng-click="Isclicked();">
+
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.formPassword.$invalid && udpatedPraticienForm.formPassword.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.formPassword.$error.required">Veuillez introduire votre mot de passe.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.formPassword.$error.maxlength">Votre mot de passe ne doit pas dépasser 50 caractères.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.formPassword.$error.minlength">Votre mot de passe doit être composé de plus que 4 caractères.</small>
+                                <!-- <small class="error" data-ng-show="udpatedPraticienForm.formPassword.$error.pattern">Votre mot de passe n'est pas suffisament complexe. Pour l'améliorer, vous devez utiliser au moins une lettre en majuscule, un chiffre et un des caractères spéciaux !,@,#,$,%,^,&,*,?,_,~</small>-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.password_c.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                                <input class="form-control input-width-class-m" type="password" placeholder="Confirmer mot de passe" id="password_c" name="password_c" data-ng-model="udpatePraticien.password_c" valid-password-c="{{udpatePraticien.password===udpatePraticien.password_c}}" required="" data-ng-click="Isclicked();" />
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.password_c.$invalid && udpatedPraticienForm.password_c.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.password_c.$error.required && udpatedPraticienForm.password_c.$dirty">Veuillez confirmer votre mot de passe.</small>
+                                <small class="error" data-ng-show="!udpatedPraticienForm.password_c.$error.required && udpatedPraticienForm.password_c.$error.noMatch">La confirmation ne correspond pas au mot de passe.</small>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCin" class="col-sm-5 control-label" style="text-align: left;">Numéro carte d'identité</label>
+                        <div class="col-sm-7">
+                            <div class="input-group  {{loadInputClassForAdd(udpatedPraticienForm.cin.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-credit-card"></i>
+                                </div>
+                                <input class="form-control input-width-class-m" type="text" placeholder="CIN" data-ng-pattern="/.*?([0-9]{8}).*?/" data-ng-model="udpatePraticien.cin" name="cin" required="" data-ng-minlength="8" data-ng-maxlength="8" data-ng-click="Isclicked();" disabled="">
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.cin.$invalid && udpatedPraticienForm.cin.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.cin.$error.required">Veuillez Introduire votre CIN.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.cin.$error.pattern">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.cin.$error.maxlength">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.cin.$error.minlength">Le format de votre CIN n'est pas correcte, il est composé de 8 chiffres.</small>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputSpecialite" class="col-sm-5 control-label" style="text-align: left;">Spécialité</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.specialite.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input list="specialiteLst" class="form-control style-mobile" style="width: 100%;" type="text" placeholder="Spécialité" id="specialite" name="specialite" data-ng-model="udpatePraticien.specialite" required="" data-ng-maxlength="25" style="width: 218px;" data-ng-click="Isclicked();" />
+                                <datalist id="specialiteLst">
+                                    <option data-ng-repeat="specialite in specialites">{{specialite}}</option>
+                                </datalist>
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.specialite.$invalid && udpatedPraticienForm.specialite.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.specialite.$error.required">Veuillez sélectionner votre spécialité.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-5 control-label" style="text-align: left;">Nom et prénom</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.nomPrenom.$valid)}}">
+                                <div class="input-group-addon" style="width: 46px;">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input class="form-control style-mobile" type="text" style="width: 100%;" placeholder="Nom et prénom" data-ng-model="udpatePraticien.nomPrenom" name="nomPrenom" required="" data-ng-maxlength="70" data-ng-minlength="3" data-ng-click="Isclicked();">
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.nomPrenom.$invalid && udpatedPraticienForm.nomPrenom.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.nomPrenom.$error.required">Veuillez Introduire votre nom et votre prénom séparé par un espace.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.nomPrenom.$error.maxlength">Le nombre de caractères ne doit pas dépasser 70 caractères.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.nomPrenom.$error.minlength">Le nombre de caractères doit être plus que 3 caractères caractères.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6" style="background-color: #ebf1fa;margin-left:2%; ">
+
+                    <div class="form-group">
+                        <label for="inputAddress" class="col-sm-5 control-label" style="text-align: left;">Adresse</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.adresse.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <textarea class="form-control style-mobile" style="width: 100%;" placeholder="Adresse complète" data-ng-model="udpatePraticien.adresse" name="adresse" required="" data-ng-maxlength="150"  data-ng-click="Isclicked();" />
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.adresse.$invalid && udpatedPraticienForm.adresse.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.adresse.$error.required">Veuillez Introduire votre adresse.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.adresse.$error.maxlength">Le nombre de caractères ne doit pas dépasser 150 caractères.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputGouvernerat" class="col-sm-5 control-label" style="text-align: left;">Gouvernerat</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.gouvernerat.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input list="gouverneratLst" class="form-control style-mobile" style="width: 100%;" type="text" placeholder="Gouvernerat" data-ng-change="stateInputChanged(udpatePraticien.gouvernerat)" id="gouvernerat" name="gouvernerat" data-ng-model="udpatePraticien.gouvernerat" required="" data-ng-maxlength="25"  data-ng-click="Isclicked();" />
+                                <datalist id="gouverneratLst">
+                                    <option data-ng-repeat="gouvernerat in gouvernerats" value="{{gouvernerat}}">{{gouvernerat}}</option>
+                                </datalist>
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.gouvernerat.$invalid && udpatedPraticienForm.gouvernerat.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.gouvernerat.$error.required">Veuillez sélectionner votre gouvernerat.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDelegation" class="col-sm-5 control-label" style="text-align: left;">Délégation</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.delegation.$valid)}}">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <input list="delegationLst" class="form-control style-mobile" style="width: 100%;"  type="text" placeholder="Délégation" id="delegation" name="delegation" data-ng-model="udpatePraticien.delegation" required="" data-ng-maxlength="25"  data-ng-click="Isclicked();" />
+                                <datalist id="delegationLst">
+                                    <option data-ng-repeat="deleg in filtredDelegations" value="{{deleg.value}}">{{deleg.value}}</option>
+                                </datalist>
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.delegation.$invalid && udpatedPraticienForm.delegation.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.delegation.$error.required">Veuillez sélectionner votre délégation.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTelephone" class="col-sm-5 control-label" style="text-align: left;">Téléphone</label>
+                        <div class="col-sm-6">
+                            <div class="input-group {{loadInputClassForAdd(udpatedPraticienForm.telephone.$valid)}}">
+                                <div class="input-group-addon" style="width: 46px;">
+                                    <i class="fa fa-mobile" style="font-size: 21px;"></i>
+                                </div>
+                                <textarea class="form-control style-mobile" style="width: 100%;" type="text" placeholder="Téléphone" data-ng-model="udpatePraticien.telephone" required="" name="telephone" data-ng-maxlength="255" data-ng-click="Isclicked();"></textarea>
+                            </div>
+                            <div class="alert alert-danger" data-ng-show="udpatedPraticienForm.telephone.$invalid && udpatedPraticienForm.telephone.$dirty && !hideValidationError">
+                                <small class="error" data-ng-show="udpatedPraticienForm.telephone.$error.required">Veuillez Introduire votre téléphone.</small>
+                                <small class="error" data-ng-show="udpatedPraticienForm.telephone.$error.maxlength">Le nombre de caractères ne doit pas dépasser 255 caractères.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputFax" class="col-sm-5 control-label" style="text-align: left;">Fax</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <div class="input-group-addon" style="width: 46px;">
+                                    <i class="fa fa-mobile" style="font-size: 21px;"></i>
+                                </div>
+                                <input class="form-control style-mobile" type="text" style="width: 100%;" placeholder="Fax" data-ng-model="udpatePraticien.fax" name="fax" data-ng-maxlength="15" data-ng-click="Isclicked();">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="well well-lg col-md-12 info-supplementaires" style="background-color: #d5ebf7">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Info:</span>
+                    Ces informations ne sont pas obligatoires, mais sont nécessaires pour que le patient aura une idée sur votre parcourt et votre expérience professionnelle.
+                </div>
+
+                <div class="container-fluid col-md-12 info-supplementaires">
+
+                    <div class="panel panel-info">
+                        <!-- .panel-heading -->
+                        <div class="panel-heading">
+                            Des informations supplémentaires
+                        </div>
+                        <div class="panel panel-body">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPrixConsultation" class="col-sm-5 control-label" style="text-align: left;">Prix de Consultation</label>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="Prix de consultation" data-ng-model="udpatePraticien.prixConsultation" name="prixConsultation">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputConventionne" class="col-sm-5 control-label" style="text-align: left;">Conventionné avec CNAM</label>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <input class="form-control" type="checkbox" data-ng-model="udpatePraticien.conventionne" name="conventionne" style="width: 25px; height: 25px; text-align: right; margin-left: 0px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="float: right;">
+                                <div class="form-group">
+                                    <label for="inputMoyensPaiement" class="col-sm-4 control-label" style="text-align: left;">Moyens de paiement</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="Moyens de paiement" data-ng-model="udpatePraticien.moyensPaiement" name="moyensPaiement">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputReseauxSociaux" class="col-sm-4 control-label" style="text-align: left;">Réseaux sociaux</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <textarea class="form-control" placeholder="Facebook;Twitter;Viadeo;Linkedin (si vous avez plusieurs veuillez les séparer par un point virgule ; )." data-ng-model="udpatePraticien.reseauxSociaux" name="reseauxSociaux" style="height: 100px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <!-- .panel-heading -->
+                        <div class="panel-heading">
+                            Des informations académiques
+                        </div>
+                        <div class="panel panel-body" style="text-align: center; margin-left: 50px;">
+                            <div class="form-group">
+                                <label for="inputLanguesParles" class="col-sm-3 control-label" style="text-align: left;">Langues Parlés</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" data-ng-model="udpatePraticien.languesParles" placeholder="Si vous maitrisez plus qu'un langage vous les séparer par un point virgule, exemple : français;anglais" name="languesParles" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputDiplomes" class="col-sm-3 control-label" style="text-align: left;">Diplômes</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Vos diplômes." data-ng-model="udpatePraticien.diplomes" name="diplomes" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputFormations" class="col-sm-3 control-label" style="text-align: left;">Formations</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Vos formations." data-ng-model="udpatePraticien.formations" name="formations" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputCursus" class="col-sm-3 control-label" style="text-align: left;">Cursus</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Votre cursus universitaire." data-ng-model="udpatePraticien.cursus" name="cursus" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPublication" class="col-sm-3 control-label" style="text-align: left;">Publication</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Titre de vos publications ou lien." data-ng-model="udpatePraticien.publication" name="publication" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputParcoursHospitalier" class="col-sm-3 control-label" style="text-align: left;">Parcours hôspitalier</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Si vous avez travaillé ou vous travaillez déjà dans un hôpital ou clinique." data-ng-model="udpatePraticien.parcoursHospitalier" name="parcoursHospitalier" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputInformationsPratique" class="col-sm-3 control-label" style="text-align: left;">InformationsPratique</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <textarea class="form-control" placeholder="Veuillez fournir plus de détails sur votre adresse, exemple : à côté de, 2 mètres du métro, ...pour aider le patient à vous trouver." data-ng-model="udpatePraticien.informationsPratique" name="informationsPratique" style="width: 600px; max-width: 600px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="position-button">
+                        <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove icon-space"></span> Initialiser</button>
+                        <button type="submit" class="btn btn-primary" data-ng-click="updatePraticien()" data-loading-text="Loading..."
+                                data-ng-disabled="udpatedPraticienForm.newEmail.$invalid||
+                        udpatedPraticienForm.formPassword.$invalid||
+                        udpatedPraticienForm.password_c.$invalid ||
+                        udpatedPraticienForm.cin.$invalid ||
+                        udpatedPraticienForm.nomPrenom.$invalid ||
+                        udpatedPraticienForm.adresse.$invalid ||
+                        udpatedPraticienForm.telephone.$invalid ||
+                        udpatedPraticienForm.gouvernerat.$invalid ||
+                        udpatedPraticienForm.delegation.$invalid ||
+                        udpatedPraticienForm.mentions.$invalid ||
+                        udpatedPraticienForm.specialite.$invalid">
+                            <span class="glyphicon glyphicon-floppy-disk icon-space"></span> Valider
+                        </button>
+                    </div>
+                </div>
+                <script src="../../../Scripts/polyfiller.js"></script>
+                <script>
+
+                    //pour faire fonctionner input type = date sous firefox
+                    webshims.setOptions('forms-ext', { types: 'date' });
+                    webshims.polyfill('forms forms-ext');
+                </script>
+            </form>
+        </div>
+    </div>
+</div>
