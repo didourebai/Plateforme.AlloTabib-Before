@@ -1,0 +1,8 @@
+2015-02-24 18:03:04,677 ERROR Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - Get Praticiens Exception
+System.NullReferenceException: La référence d'objet n'est pas définie à une instance d'un objet.
+   à Plateforme.AlloTabib.DomainLayer.DomainServices.PraticienDomainServices.PraticienDomainServices.GetPraticiens(Int32 take, Int32 skip) dans d:\Privé\Plateforme.AlloTabib-16-01\Plateforme.AlloTabib-16-01\Plateforme.AlloTabib\Plateforme.AlloTabib.DomainLayer\DomainServices\PraticienDomainServices\PraticienDomainServices.cs:ligne 74
+2015-02-24 18:06:47,010 ERROR Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - ** Logging Error ** La référence d'objet n'est pas définie à une instance d'un objet.
+2015-02-24 18:08:46,871 INFO Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - Get Praticiens With Take And Skip Parameters avec @IP : Start.172.18.1.133
+2015-02-24 18:08:47,126 INFO Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - Get Praticiens With Take And Skip Parameters : End --- Status : OK
+2015-02-24 18:11:00,104 INFO Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - Get Praticiens With Take And Skip Parameters avec @IP : Start.172.18.1.133
+2015-02-24 18:11:00,202 INFO Plateforme.AlloTabib.CrossCuttingLayer.Logging.Logger - Get Praticiens With Take And Skip Parameters : End --- Status : OK
